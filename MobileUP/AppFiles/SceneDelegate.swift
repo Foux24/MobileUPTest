@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         self.window?.windowScene = windowScene
 //        let mainSсreen = MainScreenViewController()
-        let mainScreen = MobileUPGalleryViewController()
+        let mainScreen = MobileUPGalleryBuilder.build()
         let navigationController = UINavigationController(rootViewController: mainScreen)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()

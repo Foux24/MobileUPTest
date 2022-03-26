@@ -11,7 +11,7 @@ import UIKit
 class OAuthVKBuilder {
     
     /// Билд контроллера для авторизации в VK
-    static func build() -> (UIViewController) {
+    static func build() -> UIViewController {
         let router = OAuthVKRouter()
         let presenter = OAuthVKPresentor(router: router)
         let viewController = OAuthVKViewController(presentor: presenter)

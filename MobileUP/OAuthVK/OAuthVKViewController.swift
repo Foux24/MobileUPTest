@@ -11,7 +11,7 @@ import WebKit
 // MARK: -  OAuthVKViewController
 final class OAuthVKViewController: UIViewController {
     
-    /// Ссылка на презентор
+    /// Презентор
     private let presentor: OAuthVKPresentorOutout
     
     /// Инициализтор

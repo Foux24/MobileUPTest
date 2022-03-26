@@ -18,6 +18,9 @@
 		590F604727EF5F77000DA37A /* JsonModelPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F604627EF5F77000DA37A /* JsonModelPhotoAlbum.swift */; };
 		590F604927EF5F88000DA37A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F604827EF5F88000DA37A /* NetworkService.swift */; };
 		590F604C27EF6A7D000DA37A /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 590F604B27EF6A7D000DA37A /* PromiseKit */; };
+		590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */; };
+		590F605127EF6F53000DA37A /* MobileUPGalleryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */; };
+		590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */; };
 		598A387727EF1C210001C534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387627EF1C210001C534 /* AppDelegate.swift */; };
 		598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387827EF1C210001C534 /* SceneDelegate.swift */; };
 		598A388027EF1C220001C534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598A387F27EF1C220001C534 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		590F604327EF4772000DA37A /* SFProDisplay-Medium.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.OTF"; sourceTree = "<group>"; };
 		590F604627EF5F77000DA37A /* JsonModelPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModelPhotoAlbum.swift; sourceTree = "<group>"; };
 		590F604827EF5F88000DA37A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryPresentor.swift; sourceTree = "<group>"; };
+		590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryBuilder.swift; sourceTree = "<group>"; };
+		590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryIntercator.swift; sourceTree = "<group>"; };
 		598A387327EF1C210001C534 /* MobileUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		598A387627EF1C210001C534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		598A387827EF1C210001C534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,9 @@
 			isa = PBXGroup;
 			children = (
 				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
+				590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */,
+				590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */,
+				590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -256,9 +265,12 @@
 				590F604927EF5F88000DA37A /* NetworkService.swift in Sources */,
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
+				590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */,
 				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,
+				590F605127EF6F53000DA37A /* MobileUPGalleryBuilder.swift in Sources */,
 				598A389227EF22610001C534 /* MainScreenView.swift in Sources */,
 				590F603F27EF3D0E000DA37A /* OAuthVKBuilder.swift in Sources */,
+				590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */,
 				590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */,
 				590F603927EF39CC000DA37A /* OAuthVKViewController.swift in Sources */,
 			);

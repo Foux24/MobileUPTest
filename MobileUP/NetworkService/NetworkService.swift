@@ -8,6 +8,12 @@
 import Foundation
 import PromiseKit
 
+protocol NetworkServiceOutput: AnyObject {
+    func loadPhotoAlbumPromisURL(ownerID: String, albumID: String) -> Promise<URL>
+    func loadPhotoAlbumPromisData(_ url: URL) -> Promise<Data>
+    func loadPhotoAlbumPromiseParsed(_ data: Data) -> Promise<[Item]>
+}
+
 // MARK: - Request PhotoAlbum Vk.API
 /// Список методов
 fileprivate enum TypeMethods: String {
@@ -21,13 +27,13 @@ fileprivate enum TypeRequest: String {
 
 // MARK: - Error
 /// Список  ошибок при запросе к АПИ
-enum PhotoFriendsError: Error {
+enum PhotoAlbumError: Error {
     case parseError
     case errorTask
 }
 
 // MARK: - NetworkService
-final class NetworkService {
+final class NetworkService: NetworkServiceOutput {
     
     /// URLSession
     private let session: URLSession = {
@@ -71,7 +77,7 @@ final class NetworkService {
         return Promise { resolver in
             session.dataTask(with: url) { data, response, error in
                 guard let data = data else {
-                    resolver.reject(PhotoFriendsError.errorTask)
+                    resolver.reject(PhotoAlbumError.errorTask)
                     return
                 }
                 resolver.fulfill(data)
@@ -86,7 +92,7 @@ final class NetworkService {
                 let response = try decoder.decode(JsonModelPhotoAlbum.self, from: data).response.items
                 resolver.fulfill(response)
             } catch {
-                resolver.reject(PhotoFriendsError.parseError)
+                resolver.reject(PhotoAlbumError.parseError)
             }
         }
     }
