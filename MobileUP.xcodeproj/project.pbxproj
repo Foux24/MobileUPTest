@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		590F603527EF390B000DA37A /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603427EF390B000DA37A /* Session.swift */; };
+		590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603627EF39C2000DA37A /* OAuthVKView.swift */; };
+		590F603927EF39CC000DA37A /* OAuthVKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603827EF39CC000DA37A /* OAuthVKViewController.swift */; };
+		590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603A27EF39E1000DA37A /* OAuthVKPresentor.swift */; };
+		590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603C27EF3B36000DA37A /* OAuthVKRouter.swift */; };
+		590F603F27EF3D0E000DA37A /* OAuthVKBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F603E27EF3D0E000DA37A /* OAuthVKBuilder.swift */; };
+		590F604227EF3F18000DA37A /* MobileUPGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */; };
+		590F604427EF4772000DA37A /* SFProDisplay-Medium.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 590F604327EF4772000DA37A /* SFProDisplay-Medium.OTF */; };
 		598A387727EF1C210001C534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387627EF1C210001C534 /* AppDelegate.swift */; };
 		598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387827EF1C210001C534 /* SceneDelegate.swift */; };
 		598A388027EF1C220001C534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598A387F27EF1C220001C534 /* Assets.xcassets */; };
 		598A388327EF1C220001C534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598A388127EF1C220001C534 /* LaunchScreen.storyboard */; };
 		598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */; };
 		598A389227EF22610001C534 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389127EF22610001C534 /* MainScreenView.swift */; };
-		598A389427EF22700001C534 /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389327EF22700001C534 /* MainScreenBuilder.swift */; };
-		598A389627EF227D0001C534 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389527EF227D0001C534 /* MainScreenRouter.swift */; };
-		598A389827EF22910001C534 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389727EF22910001C534 /* MainScreenInteractor.swift */; };
-		598A389A27EF22B40001C534 /* MainScreenPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389927EF22B40001C534 /* MainScreenPresentor.swift */; };
 		598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389C27EF26DC0001C534 /* Extension+UIColor.swift */; };
 		598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		590F603427EF390B000DA37A /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		590F603627EF39C2000DA37A /* OAuthVKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVKView.swift; sourceTree = "<group>"; };
+		590F603827EF39CC000DA37A /* OAuthVKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVKViewController.swift; sourceTree = "<group>"; };
+		590F603A27EF39E1000DA37A /* OAuthVKPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVKPresentor.swift; sourceTree = "<group>"; };
+		590F603C27EF3B36000DA37A /* OAuthVKRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVKRouter.swift; sourceTree = "<group>"; };
+		590F603E27EF3D0E000DA37A /* OAuthVKBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthVKBuilder.swift; sourceTree = "<group>"; };
+		590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryViewController.swift; sourceTree = "<group>"; };
+		590F604327EF4772000DA37A /* SFProDisplay-Medium.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.OTF"; sourceTree = "<group>"; };
 		598A387327EF1C210001C534 /* MobileUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		598A387627EF1C210001C534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		598A387827EF1C210001C534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,10 +42,6 @@
 		598A388427EF1C220001C534 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		598A389127EF22610001C534 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
-		598A389327EF22700001C534 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
-		598A389527EF227D0001C534 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
-		598A389727EF22910001C534 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
-		598A389927EF22B40001C534 /* MainScreenPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresentor.swift; sourceTree = "<group>"; };
 		598A389C27EF26DC0001C534 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.OTF"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -49,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		590F604027EF3EBE000DA37A /* MobileUpGallery */ = {
+			isa = PBXGroup;
+			children = (
+				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
+			);
+			path = MobileUpGallery;
+			sourceTree = "<group>";
+		};
 		598A386A27EF1C210001C534 = {
 			isa = PBXGroup;
 			children = (
@@ -68,10 +84,13 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
+				590F604027EF3EBE000DA37A /* MobileUpGallery */,
+				598A38A127EF38810001C534 /* OAuthVK */,
+				598A388E27EF1F870001C534 /* MainScreen */,
 				598A389E27EF2C980001C534 /* Fonts */,
 				598A389B27EF26CC0001C534 /* Extension */,
-				598A388E27EF1F870001C534 /* MainScreen */,
 				598A388D27EF1F3D0001C534 /* AppFiles */,
+				598A38A227EF38D40001C534 /* Session */,
 				598A387F27EF1C220001C534 /* Assets.xcassets */,
 				598A388127EF1C220001C534 /* LaunchScreen.storyboard */,
 				598A388427EF1C220001C534 /* Info.plist */,
@@ -93,10 +112,6 @@
 			children = (
 				598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */,
 				598A389127EF22610001C534 /* MainScreenView.swift */,
-				598A389327EF22700001C534 /* MainScreenBuilder.swift */,
-				598A389527EF227D0001C534 /* MainScreenRouter.swift */,
-				598A389727EF22910001C534 /* MainScreenInteractor.swift */,
-				598A389927EF22B40001C534 /* MainScreenPresentor.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -112,9 +127,30 @@
 		598A389E27EF2C980001C534 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				590F604327EF4772000DA37A /* SFProDisplay-Medium.OTF */,
 				598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		598A38A127EF38810001C534 /* OAuthVK */ = {
+			isa = PBXGroup;
+			children = (
+				590F603627EF39C2000DA37A /* OAuthVKView.swift */,
+				590F603827EF39CC000DA37A /* OAuthVKViewController.swift */,
+				590F603A27EF39E1000DA37A /* OAuthVKPresentor.swift */,
+				590F603C27EF3B36000DA37A /* OAuthVKRouter.swift */,
+				590F603E27EF3D0E000DA37A /* OAuthVKBuilder.swift */,
+			);
+			path = OAuthVK;
+			sourceTree = "<group>";
+		};
+		598A38A227EF38D40001C534 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				590F603427EF390B000DA37A /* Session.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +213,7 @@
 			files = (
 				598A388327EF1C220001C534 /* LaunchScreen.storyboard in Resources */,
 				598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */,
+				590F604427EF4772000DA37A /* SFProDisplay-Medium.OTF in Resources */,
 				598A388027EF1C220001C534 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,15 +225,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590F603527EF390B000DA37A /* Session.swift in Sources */,
 				598A387727EF1C210001C534 /* AppDelegate.swift in Sources */,
-				598A389827EF22910001C534 /* MainScreenInteractor.swift in Sources */,
+				590F604227EF3F18000DA37A /* MobileUPGalleryViewController.swift in Sources */,
 				598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */,
 				598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */,
-				598A389A27EF22B40001C534 /* MainScreenPresentor.swift in Sources */,
+				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
-				598A389627EF227D0001C534 /* MainScreenRouter.swift in Sources */,
-				598A389427EF22700001C534 /* MainScreenBuilder.swift in Sources */,
+				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,
 				598A389227EF22610001C534 /* MainScreenView.swift in Sources */,
+				590F603F27EF3D0E000DA37A /* OAuthVKBuilder.swift in Sources */,
+				590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */,
+				590F603927EF39CC000DA37A /* OAuthVKViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,7 +27,7 @@ final class MainScreenView: UIView {
     private(set) lazy var authorisationVKButton: UIButton = {
         let button = UIButton()
         button.setTitle("Вход через VK", for: .normal)
-        button.titleLabel?.font = UIFont(name: ".SFProDisplay-Medium", size: 18)
+        button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 18)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .customBlackColor
         button.layer.cornerRadius = 8
@@ -77,4 +77,6 @@ private extension MainScreenView {
             authorisationVKButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
+    
+
 }
