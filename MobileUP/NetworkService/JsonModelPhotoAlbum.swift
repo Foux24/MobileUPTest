@@ -38,6 +38,19 @@ struct Item: Codable {
 struct Size: Codable {
     let height: Int
     let url: String
-    let type: String
+    let type: EnumType
     let width: Int
+    
+    enum EnumType: String, Codable {
+        case m = "m"
+        case o = "o"
+        case p = "p"
+        case q = "q"
+        case r = "r"
+        case s = "s"
+        case w = "w"
+        case x = "x"
+        case y = "y"
+        case z = "z"
+    }
 }

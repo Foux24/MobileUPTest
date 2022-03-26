@@ -29,6 +29,9 @@
 		598A389227EF22610001C534 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389127EF22610001C534 /* MainScreenView.swift */; };
 		598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389C27EF26DC0001C534 /* Extension+UIColor.swift */; };
 		598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */; };
+		599183C227EF7AAD0059580A /* MobileUPGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */; };
+		599183C427EF7BED0059580A /* Extension+UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */; };
+		599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		598A389127EF22610001C534 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		598A389C27EF26DC0001C534 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.OTF"; sourceTree = "<group>"; };
+		599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryView.swift; sourceTree = "<group>"; };
+		599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCell.swift"; sourceTree = "<group>"; };
+		599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUpGalleryUICollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +78,12 @@
 		590F604027EF3EBE000DA37A /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
+				599183C527EF7C480059580A /* Cell */,
 				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
 				590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */,
 				590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */,
 				590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */,
+				599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -145,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				598A389C27EF26DC0001C534 /* Extension+UIColor.swift */,
+				599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -176,6 +185,14 @@
 				590F603427EF390B000DA37A /* Session.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		599183C527EF7C480059580A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,14 +273,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599183C427EF7BED0059580A /* Extension+UICollectionViewCell.swift in Sources */,
 				590F603527EF390B000DA37A /* Session.swift in Sources */,
 				598A387727EF1C210001C534 /* AppDelegate.swift in Sources */,
 				590F604227EF3F18000DA37A /* MobileUPGalleryViewController.swift in Sources */,
 				590F604727EF5F77000DA37A /* JsonModelPhotoAlbum.swift in Sources */,
+				599183C227EF7AAD0059580A /* MobileUPGalleryView.swift in Sources */,
 				598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */,
 				598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */,
 				590F604927EF5F88000DA37A /* NetworkService.swift in Sources */,
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
+				599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
 				590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */,
 				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - MobileUPGalleryViewController
 final class MobileUPGalleryViewController: UIViewController {
     
     /// Массив с фотографиями
@@ -14,6 +15,11 @@ final class MobileUPGalleryViewController: UIViewController {
         didSet {
             print(photos)
         }
+    }
+    
+    /// UIView
+    private var mobileUpGalleryView: MobileUPGalleryView {
+        return self.view as! MobileUPGalleryView
     }
     
     /// Презентор
@@ -25,15 +31,56 @@ final class MobileUPGalleryViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    // MARK: - Life Cycle
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life Cycle
+    override func loadView() {
+        super.loadView()
+        self.view = MobileUPGalleryView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         presentor.getPhotoAlbum()
     }
 }
 
+//MARK: - UITableViewDataSource
+extension MobileUPGalleryViewController: UICollectionViewDataSource {
+    
+    /// Кол-во итемов в секции коллекции
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    /// Данные для итема
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = mobileUpGalleryView.collectionView.dequeueReusableCell(forIndexPath: indexPath) as MobileUpGalleryUICollectionViewCell
+        return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension MobileUPGalleryViewController: UICollectionViewDelegate {
+    
+    /// Действие при выделении итема
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
+}
+
+/// Подпишем контроллер на протокол
 extension MobileUPGalleryViewController: MobileUPGalleryPresentorInput {}
+
+// MARK: - Private
+private extension MobileUPGalleryViewController {
+    
+    /// назначим серч бару и коллекции делага и дата соурс
+    func setupView() {
+        self.mobileUpGalleryView.collectionView.registerCell(MobileUpGalleryUICollectionViewCell.self)
+        self.mobileUpGalleryView.collectionView.delegate = self
+        self.mobileUpGalleryView.collectionView.dataSource = self
+    }
+}

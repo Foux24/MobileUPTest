@@ -37,7 +37,7 @@ class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
             .done(on: DispatchQueue.main) { response in
                 completion(.success(response))
             }.catch { error in
-                completion(.failure(.parseError))
+                completion(.failure(error as! PhotoAlbumError))
             }
     }
 }
