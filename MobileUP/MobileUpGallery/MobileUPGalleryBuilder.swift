@@ -16,7 +16,7 @@ class MobileUPGalleryBuilder {
         let interacor = MobileUPGalleryIntercator(service: networkService)
         let presenter = MobileUPGalleryPresentor(interactor: interacor)
         let viewController = MobileUPGalleryViewController(presentor: presenter)
-        
+
         presenter.viewController = viewController
         return viewController
     }

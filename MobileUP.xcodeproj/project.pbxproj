@@ -32,6 +32,7 @@
 		599183C227EF7AAD0059580A /* MobileUPGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */; };
 		599183C427EF7BED0059580A /* Extension+UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */; };
 		599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */; };
+		599183CA27EF7F960059580A /* HashPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C927EF7F950059580A /* HashPhotoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryView.swift; sourceTree = "<group>"; };
 		599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCell.swift"; sourceTree = "<group>"; };
 		599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUpGalleryUICollectionViewCell.swift; sourceTree = "<group>"; };
+		599183C927EF7F950059580A /* HashPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashPhotoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
+				599183C827EF7F7E0059580A /* Hash */,
 				590F604527EF5F30000DA37A /* NetworkService */,
 				590F604027EF3EBE000DA37A /* MobileUpGallery */,
 				598A38A127EF38810001C534 /* OAuthVK */,
@@ -193,6 +196,14 @@
 				599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		599183C827EF7F7E0059580A /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				599183C927EF7F950059580A /* HashPhotoService.swift */,
+			);
+			path = Hash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
+				599183CA27EF7F960059580A /* HashPhotoService.swift in Sources */,
 				590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */,
 				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,
 				590F605127EF6F53000DA37A /* MobileUPGalleryBuilder.swift in Sources */,

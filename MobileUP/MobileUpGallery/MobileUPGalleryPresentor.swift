@@ -15,6 +15,7 @@ protocol MobileUPGalleryPresentorInput: AnyObject {
 /// Проктол с выходными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorOutput: AnyObject {
     func getPhotoAlbum() -> Void
+    var fileManager: HashPhotoService? { get set }
 }
 
 // MARK: - MobileUPGalleryPresentor
@@ -25,6 +26,9 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     
     /// Вью Контроллер
     weak var viewController: (UIViewController & MobileUPGalleryPresentorInput)?
+    
+    /// Для кеша изоборажений
+    var fileManager: HashPhotoService?
     
     init(interactor: MobileUPGalleryIntercatorInput) {
         self.interactor = interactor

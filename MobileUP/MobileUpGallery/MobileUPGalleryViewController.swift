@@ -44,6 +44,7 @@ final class MobileUPGalleryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        presentor.fileManager = HashPhotoService(container: mobileUpGalleryView.collectionView)
         presentor.getPhotoAlbum()
     }
 }
