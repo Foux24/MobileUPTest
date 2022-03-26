@@ -9,7 +9,7 @@ import UIKit
 
 /// Проктол с входными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorInput: AnyObject {
-    var photos: [Item] { get set }
+    var photos: [ModelSortedPhoto] { get set }
 }
 
 /// Проктол с выходными параметрами для взаимодействия с ViewController
@@ -20,7 +20,7 @@ protocol MobileUPGalleryPresentorOutput: AnyObject {
 
 // MARK: - MobileUPGalleryPresentor
 final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
-    
+
     /// Интерактор
     private let interactor: MobileUPGalleryIntercatorInput
     
@@ -30,6 +30,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     /// Для кеша изоборажений
     var fileManager: HashPhotoService?
     
+    /// Инициализтор
     init(interactor: MobileUPGalleryIntercatorInput) {
         self.interactor = interactor
     }
@@ -40,11 +41,24 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
             guard let self = self else { return }
             switch result {
             case .success(let photos):
-                self.viewController?.photos = photos
+                self.viewController?.photos = self.sortPhoto(by: .r, from: photos)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
+    /// Метод сортировки фото по передаваемому типу
+    func sortPhoto(by sizeType: Size.EnumType, from array: [Item]) -> [ModelSortedPhoto] {
+        var objectLinks: [ModelSortedPhoto] = []
+        for model in array {
+            for size in model.sizes {
+                if size.type == sizeType {
+                    let modelPhoto = ModelSortedPhoto(url: size.url, dateCreate: model.date)
+                    objectLinks.append(modelPhoto)
+                }
+            }
+        }
+        return objectLinks
+    }
 }

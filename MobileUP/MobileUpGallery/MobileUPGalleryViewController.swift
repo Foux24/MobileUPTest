@@ -11,9 +11,9 @@ import UIKit
 final class MobileUPGalleryViewController: UIViewController {
     
     /// Массив с фотографиями
-    var photos = [Item]() {
+    var photos = [ModelSortedPhoto]() {
         didSet {
-            print(photos)
+            self.mobileUpGalleryView.collectionView.reloadData()
         }
     }
     
@@ -46,6 +46,7 @@ final class MobileUPGalleryViewController: UIViewController {
         setupView()
         presentor.fileManager = HashPhotoService(container: mobileUpGalleryView.collectionView)
         presentor.getPhotoAlbum()
+        setupController()
     }
 }
 
@@ -60,6 +61,8 @@ extension MobileUPGalleryViewController: UICollectionViewDataSource {
     /// Данные для итема
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = mobileUpGalleryView.collectionView.dequeueReusableCell(forIndexPath: indexPath) as MobileUpGalleryUICollectionViewCell
+        let image = self.presentor.fileManager?.photo(atIndexPath: indexPath, byUrl: photos[indexPath.row].url)
+        cell.configureImage(with: image)
         return cell
     }
 }
@@ -78,10 +81,22 @@ extension MobileUPGalleryViewController: MobileUPGalleryPresentorInput {}
 // MARK: - Private
 private extension MobileUPGalleryViewController {
     
+    /// Настройка контроллера
+    func setupController() {
+        self.navigationItem.titleView = MobileUPGalleryTitleView()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.rightBarButtonItem?.tintColor = .customBlackColor
+    }
+    
     /// назначим серч бару и коллекции делага и дата соурс
     func setupView() {
         self.mobileUpGalleryView.collectionView.registerCell(MobileUpGalleryUICollectionViewCell.self)
         self.mobileUpGalleryView.collectionView.delegate = self
         self.mobileUpGalleryView.collectionView.dataSource = self
+    }
+    
+    @objc func logout() {
+        print("ТЫ типа вышел")
+//        Session.instance.clean()
     }
 }

@@ -12,13 +12,11 @@ final class MobileUPGalleryView: UIView {
     
     /// UICollectionView
     private(set) lazy var collectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }()
-    
+
     /// инициализтор
     override init(frame: CGRect) {
         super.init(frame: frame)

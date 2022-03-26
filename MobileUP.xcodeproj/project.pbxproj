@@ -33,6 +33,9 @@
 		599183C427EF7BED0059580A /* Extension+UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */; };
 		599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */; };
 		599183CA27EF7F960059580A /* HashPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183C927EF7F950059580A /* HashPhotoService.swift */; };
+		599183CD27EF84950059580A /* ModelSortedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183CC27EF84950059580A /* ModelSortedPhoto.swift */; };
+		599183CF27EF89BF0059580A /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */; };
+		599183D227EF8A560059580A /* MobileUPGalleryTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		599183C327EF7BED0059580A /* Extension+UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICollectionViewCell.swift"; sourceTree = "<group>"; };
 		599183C627EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUpGalleryUICollectionViewCell.swift; sourceTree = "<group>"; };
 		599183C927EF7F950059580A /* HashPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashPhotoService.swift; sourceTree = "<group>"; };
+		599183CC27EF84950059580A /* ModelSortedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSortedPhoto.swift; sourceTree = "<group>"; };
+		599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +86,13 @@
 		590F604027EF3EBE000DA37A /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
+				599183D027EF8A440059580A /* View */,
+				599183CB27EF847A0059580A /* Models */,
 				599183C527EF7C480059580A /* Cell */,
 				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
 				590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */,
 				590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */,
 				590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */,
-				599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -164,6 +171,7 @@
 		598A389E27EF2C980001C534 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */,
 				590F604327EF4772000DA37A /* SFProDisplay-Medium.OTF */,
 				598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */,
 			);
@@ -204,6 +212,23 @@
 				599183C927EF7F950059580A /* HashPhotoService.swift */,
 			);
 			path = Hash;
+			sourceTree = "<group>";
+		};
+		599183CB27EF847A0059580A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				599183CC27EF84950059580A /* ModelSortedPhoto.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		599183D027EF8A440059580A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */,
+				599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599183CF27EF89BF0059580A /* SFProDisplay-Semibold.ttf in Resources */,
 				598A388327EF1C220001C534 /* LaunchScreen.storyboard in Resources */,
 				598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */,
 				590F604427EF4772000DA37A /* SFProDisplay-Medium.OTF in Resources */,
@@ -301,6 +327,8 @@
 				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,
 				590F605127EF6F53000DA37A /* MobileUPGalleryBuilder.swift in Sources */,
 				598A389227EF22610001C534 /* MainScreenView.swift in Sources */,
+				599183D227EF8A560059580A /* MobileUPGalleryTitleView.swift in Sources */,
+				599183CD27EF84950059580A /* ModelSortedPhoto.swift in Sources */,
 				590F603F27EF3D0E000DA37A /* OAuthVKBuilder.swift in Sources */,
 				590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */,
 				590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */,

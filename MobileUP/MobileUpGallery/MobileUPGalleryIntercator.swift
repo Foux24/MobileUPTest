@@ -13,6 +13,7 @@ struct dataPhotoAlbum {
     let albumID: String = "266276915"
 }
 
+/// Проктол взаимодействия с интерактором
 protocol MobileUPGalleryIntercatorInput {
     func loadRendomPhoto(completion: @escaping (Result<[Item], PhotoAlbumError>) -> Void)
 }
@@ -20,16 +21,18 @@ protocol MobileUPGalleryIntercatorInput {
 // MARK: - SearchPhotoInteractor
 class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
 
+    /// Данные альбома
     let dataAlbum = dataPhotoAlbum()
     
     /// Сервис по загрузки данных
     private let service: NetworkServiceOutput
     
+    /// Инициализтор
     init(service: NetworkServiceOutput) {
         self.service = service
     }
     
-    /// Загруза рендомных фото
+    /// Загруза  фото из альбома
     func loadRendomPhoto(completion: @escaping (Result<[Item], PhotoAlbumError>) -> Void) {
         service.loadPhotoAlbumPromisURL(ownerID: dataAlbum.ownerID, albumID: dataAlbum.albumID)
             .then(on: DispatchQueue.global(), service.loadPhotoAlbumPromisData(_:))
