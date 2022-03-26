@@ -21,7 +21,7 @@ class OAuthVKRouter: OAuthVKRouterInput {
     /// Переход на контроллер с альбомом фотографий
     func showNextScreen() -> Void {
         let mobileUPGalleryViewController = MobileUPGalleryViewController()
-        viewController?.show(mobileUPGalleryViewController, sender: .none)
-//        viewController?.dismiss(animated: true)
+        mobileUPGalleryViewController.modalPresentationStyle = .fullScreen
+        viewController?.present(mobileUPGalleryViewController, animated: true, completion: nil)
     }
 }

@@ -14,15 +14,15 @@ class Session {
     
     private init(){}
     
-//    var token: String = "4b2bd7032a520180ec58ddb4b722a5deefe34df8dba282a217ae2606a35f68fc2f3a7ccbadbc51be848c3"
-//    var userId: Int = 184658240
+    var token: String = "95dd948148375865e2d8cd01275a0325ff6eddaab1cba64ed85451b7a4c81681428a24e6bf97264ddf445"
+    var userId: Int = 184658240
     
-    var token: String?
-    var userId: Int?
+//    var token: String?
+//    var userId: Int?
     
     /// Метод для выхода из аккаунта
     func clean() {
-        self.token = nil
+//        self.token = nil
         HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
         WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
             records.forEach { record in
