@@ -12,6 +12,13 @@
 		598A388027EF1C220001C534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598A387F27EF1C220001C534 /* Assets.xcassets */; };
 		598A388327EF1C220001C534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 598A388127EF1C220001C534 /* LaunchScreen.storyboard */; };
 		598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */; };
+		598A389227EF22610001C534 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389127EF22610001C534 /* MainScreenView.swift */; };
+		598A389427EF22700001C534 /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389327EF22700001C534 /* MainScreenBuilder.swift */; };
+		598A389627EF227D0001C534 /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389527EF227D0001C534 /* MainScreenRouter.swift */; };
+		598A389827EF22910001C534 /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389727EF22910001C534 /* MainScreenInteractor.swift */; };
+		598A389A27EF22B40001C534 /* MainScreenPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389927EF22B40001C534 /* MainScreenPresentor.swift */; };
+		598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A389C27EF26DC0001C534 /* Extension+UIColor.swift */; };
+		598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		598A388227EF1C220001C534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		598A388427EF1C220001C534 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		598A389127EF22610001C534 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		598A389327EF22700001C534 /* MainScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
+		598A389527EF227D0001C534 /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
+		598A389727EF22910001C534 /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		598A389927EF22B40001C534 /* MainScreenPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresentor.swift; sourceTree = "<group>"; };
+		598A389C27EF26DC0001C534 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.OTF"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,8 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
+				598A389E27EF2C980001C534 /* Fonts */,
+				598A389B27EF26CC0001C534 /* Extension */,
 				598A388E27EF1F870001C534 /* MainScreen */,
 				598A388D27EF1F3D0001C534 /* AppFiles */,
 				598A387F27EF1C220001C534 /* Assets.xcassets */,
@@ -76,8 +92,29 @@
 			isa = PBXGroup;
 			children = (
 				598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */,
+				598A389127EF22610001C534 /* MainScreenView.swift */,
+				598A389327EF22700001C534 /* MainScreenBuilder.swift */,
+				598A389527EF227D0001C534 /* MainScreenRouter.swift */,
+				598A389727EF22910001C534 /* MainScreenInteractor.swift */,
+				598A389927EF22B40001C534 /* MainScreenPresentor.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		598A389B27EF26CC0001C534 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				598A389C27EF26DC0001C534 /* Extension+UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		598A389E27EF2C980001C534 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				598A389F27EF2CA60001C534 /* SFProDisplay-Bold.OTF */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				598A388327EF1C220001C534 /* LaunchScreen.storyboard in Resources */,
+				598A38A027EF2CA60001C534 /* SFProDisplay-Bold.OTF in Resources */,
 				598A388027EF1C220001C534 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,8 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				598A387727EF1C210001C534 /* AppDelegate.swift in Sources */,
+				598A389827EF22910001C534 /* MainScreenInteractor.swift in Sources */,
+				598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */,
 				598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */,
+				598A389A27EF22B40001C534 /* MainScreenPresentor.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
+				598A389627EF227D0001C534 /* MainScreenRouter.swift in Sources */,
+				598A389427EF22700001C534 /* MainScreenBuilder.swift in Sources */,
+				598A389227EF22610001C534 /* MainScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
