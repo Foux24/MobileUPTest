@@ -36,6 +36,7 @@
 		599183CD27EF84950059580A /* ModelSortedPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183CC27EF84950059580A /* ModelSortedPhoto.swift */; };
 		599183CF27EF89BF0059580A /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */; };
 		599183D227EF8A560059580A /* MobileUPGalleryTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */; };
+		599183D627EF9EFD0059580A /* DataPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183D527EF9EFD0059580A /* DataPhotoAlbum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		599183CC27EF84950059580A /* ModelSortedPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSortedPhoto.swift; sourceTree = "<group>"; };
 		599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryTitleView.swift; sourceTree = "<group>"; };
+		599183D527EF9EFD0059580A /* DataPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPhotoAlbum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +88,12 @@
 		590F604027EF3EBE000DA37A /* MobileUpGallery */ = {
 			isa = PBXGroup;
 			children = (
-				599183D027EF8A440059580A /* View */,
-				599183CB27EF847A0059580A /* Models */,
-				599183C527EF7C480059580A /* Cell */,
-				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
-				590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */,
-				590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */,
-				590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */,
+				599183DB27EFA4640059580A /* MobileUpGalleryBuilder */,
+				599183DA27EFA4500059580A /* MobileUpGalleryRouter */,
+				599183D927EFA4310059580A /* MobileUpGalleryInteractor */,
+				599183D827EFA4210059580A /* MobileUpGalleryPresentor */,
+				599183D727EFA40B0059580A /* MobileUpGalleryViewController */,
+				599183D027EF8A440059580A /* MobileUpGalleryView */,
 			);
 			path = MobileUpGallery;
 			sourceTree = "<group>";
@@ -125,11 +126,12 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
-				599183C827EF7F7E0059580A /* Hash */,
-				590F604527EF5F30000DA37A /* NetworkService */,
 				590F604027EF3EBE000DA37A /* MobileUpGallery */,
 				598A38A127EF38810001C534 /* OAuthVK */,
 				598A388E27EF1F870001C534 /* MainScreen */,
+				590F604527EF5F30000DA37A /* NetworkService */,
+				599183C827EF7F7E0059580A /* Hash */,
+				599183CB27EF847A0059580A /* Models */,
 				598A389E27EF2C980001C534 /* Fonts */,
 				598A389B27EF26CC0001C534 /* Extension */,
 				598A388D27EF1F3D0001C534 /* AppFiles */,
@@ -153,8 +155,8 @@
 		598A388E27EF1F870001C534 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */,
-				598A389127EF22610001C534 /* MainScreenView.swift */,
+				599183E227EFA4DB0059580A /* MainScreenView */,
+				599183E127EFA4C60059580A /* MainScreenViewController */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -181,11 +183,11 @@
 		598A38A127EF38810001C534 /* OAuthVK */ = {
 			isa = PBXGroup;
 			children = (
-				590F603627EF39C2000DA37A /* OAuthVKView.swift */,
-				590F603827EF39CC000DA37A /* OAuthVKViewController.swift */,
-				590F603A27EF39E1000DA37A /* OAuthVKPresentor.swift */,
-				590F603C27EF3B36000DA37A /* OAuthVKRouter.swift */,
-				590F603E27EF3D0E000DA37A /* OAuthVKBuilder.swift */,
+				599183E027EFA4A30059580A /* OAuthVKBuilder */,
+				599183DF27EFA4980059580A /* OAuthVKRouter */,
+				599183DE27EFA48F0059580A /* OAuthVKPresentor */,
+				599183DD27EFA4830059580A /* OAuthVKViewController */,
+				599183DC27EFA4790059580A /* OAuthVKView */,
 			);
 			path = OAuthVK;
 			sourceTree = "<group>";
@@ -218,17 +220,114 @@
 			isa = PBXGroup;
 			children = (
 				599183CC27EF84950059580A /* ModelSortedPhoto.swift */,
+				599183D527EF9EFD0059580A /* DataPhotoAlbum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		599183D027EF8A440059580A /* View */ = {
+		599183D027EF8A440059580A /* MobileUpGalleryView */ = {
 			isa = PBXGroup;
 			children = (
+				599183C527EF7C480059580A /* Cell */,
 				599183C127EF7AAD0059580A /* MobileUPGalleryView.swift */,
 				599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */,
 			);
-			path = View;
+			path = MobileUpGalleryView;
+			sourceTree = "<group>";
+		};
+		599183D727EFA40B0059580A /* MobileUpGalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				590F604127EF3F18000DA37A /* MobileUPGalleryViewController.swift */,
+			);
+			path = MobileUpGalleryViewController;
+			sourceTree = "<group>";
+		};
+		599183D827EFA4210059580A /* MobileUpGalleryPresentor */ = {
+			isa = PBXGroup;
+			children = (
+				590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */,
+			);
+			path = MobileUpGalleryPresentor;
+			sourceTree = "<group>";
+		};
+		599183D927EFA4310059580A /* MobileUpGalleryInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */,
+			);
+			path = MobileUpGalleryInteractor;
+			sourceTree = "<group>";
+		};
+		599183DA27EFA4500059580A /* MobileUpGalleryRouter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MobileUpGalleryRouter;
+			sourceTree = "<group>";
+		};
+		599183DB27EFA4640059580A /* MobileUpGalleryBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */,
+			);
+			path = MobileUpGalleryBuilder;
+			sourceTree = "<group>";
+		};
+		599183DC27EFA4790059580A /* OAuthVKView */ = {
+			isa = PBXGroup;
+			children = (
+				590F603627EF39C2000DA37A /* OAuthVKView.swift */,
+			);
+			path = OAuthVKView;
+			sourceTree = "<group>";
+		};
+		599183DD27EFA4830059580A /* OAuthVKViewController */ = {
+			isa = PBXGroup;
+			children = (
+				590F603827EF39CC000DA37A /* OAuthVKViewController.swift */,
+			);
+			path = OAuthVKViewController;
+			sourceTree = "<group>";
+		};
+		599183DE27EFA48F0059580A /* OAuthVKPresentor */ = {
+			isa = PBXGroup;
+			children = (
+				590F603A27EF39E1000DA37A /* OAuthVKPresentor.swift */,
+			);
+			path = OAuthVKPresentor;
+			sourceTree = "<group>";
+		};
+		599183DF27EFA4980059580A /* OAuthVKRouter */ = {
+			isa = PBXGroup;
+			children = (
+				590F603C27EF3B36000DA37A /* OAuthVKRouter.swift */,
+			);
+			path = OAuthVKRouter;
+			sourceTree = "<group>";
+		};
+		599183E027EFA4A30059580A /* OAuthVKBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				590F603E27EF3D0E000DA37A /* OAuthVKBuilder.swift */,
+			);
+			path = OAuthVKBuilder;
+			sourceTree = "<group>";
+		};
+		599183E127EFA4C60059580A /* MainScreenViewController */ = {
+			isa = PBXGroup;
+			children = (
+				598A388F27EF1FAF0001C534 /* MainScreenViewController.swift */,
+			);
+			path = MainScreenViewController;
+			sourceTree = "<group>";
+		};
+		599183E227EFA4DB0059580A /* MainScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				598A389127EF22610001C534 /* MainScreenView.swift */,
+			);
+			path = MainScreenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +421,7 @@
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
+				599183D627EF9EFD0059580A /* DataPhotoAlbum.swift in Sources */,
 				599183CA27EF7F960059580A /* HashPhotoService.swift in Sources */,
 				590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */,
 				590F603D27EF3B36000DA37A /* OAuthVKRouter.swift in Sources */,

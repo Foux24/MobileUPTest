@@ -11,7 +11,7 @@ import PromiseKit
 protocol NetworkServiceOutput: AnyObject {
     func loadPhotoAlbumPromisURL(ownerID: String, albumID: String) -> Promise<URL>
     func loadPhotoAlbumPromisData(_ url: URL) -> Promise<Data>
-    func loadPhotoAlbumPromiseParsed(_ data: Data) -> Promise<[Item]>
+    func loadPhotoAlbumPromiseParsed(_ data: Data) -> Promise<[Photo]>
 }
 
 // MARK: - Request PhotoAlbum Vk.API
@@ -86,7 +86,7 @@ final class NetworkService: NetworkServiceOutput {
     }
     
     /// Парсинг
-    func loadPhotoAlbumPromiseParsed(_ data: Data) -> Promise<[Item]> {
+    func loadPhotoAlbumPromiseParsed(_ data: Data) -> Promise<[Photo]> {
         return Promise { resolver in
             do {
                 let response = try decoder.decode(JsonModelPhotoAlbum.self, from: data).response.items

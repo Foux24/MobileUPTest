@@ -77,6 +77,4 @@ private extension MainScreenView {
             authorisationVKButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-    
-
 }

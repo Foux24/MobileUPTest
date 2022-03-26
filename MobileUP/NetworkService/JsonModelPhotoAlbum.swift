@@ -15,11 +15,11 @@ struct JsonModelPhotoAlbum: Codable {
 // MARK: - Response
 struct Response: Codable {
     let count: Int
-    let items: [Item]
+    let items: [Photo]
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Photo: Codable {
     let albumID, date, id, ownerID: Int
     let sizes: [Size]
     let text: String

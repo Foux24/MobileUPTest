@@ -7,23 +7,14 @@
 
 import UIKit
 
-/// структурка для данных альбома
-struct dataPhotoAlbum {
-    let ownerID: String = "-128666765"
-    let albumID: String = "266276915"
-}
-
 /// Проктол взаимодействия с интерактором
 protocol MobileUPGalleryIntercatorInput {
-    func loadRendomPhoto(completion: @escaping (Result<[Item], PhotoAlbumError>) -> Void)
+    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], PhotoAlbumError>) -> Void)
 }
 
 // MARK: - SearchPhotoInteractor
 class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
 
-    /// Данные альбома
-    let dataAlbum = dataPhotoAlbum()
-    
     /// Сервис по загрузки данных
     private let service: NetworkServiceOutput
     
@@ -33,7 +24,7 @@ class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
     }
     
     /// Загруза  фото из альбома
-    func loadRendomPhoto(completion: @escaping (Result<[Item], PhotoAlbumError>) -> Void) {
+    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], PhotoAlbumError>) -> Void) {
         service.loadPhotoAlbumPromisURL(ownerID: dataAlbum.ownerID, albumID: dataAlbum.albumID)
             .then(on: DispatchQueue.global(), service.loadPhotoAlbumPromisData(_:))
             .then(service.loadPhotoAlbumPromiseParsed(_:))

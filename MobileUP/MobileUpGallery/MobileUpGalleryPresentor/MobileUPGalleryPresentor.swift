@@ -7,12 +7,12 @@
 
 import UIKit
 
-/// Проктол с входными параметрами для взаимодействия с ViewController
+/// Протокол с входными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorInput: AnyObject {
     var photos: [ModelSortedPhoto] { get set }
 }
 
-/// Проктол с выходными параметрами для взаимодействия с ViewController
+/// Протокол с выходными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorOutput: AnyObject {
     func getPhotoAlbum() -> Void
     var fileManager: HashPhotoService? { get set }
@@ -21,6 +21,9 @@ protocol MobileUPGalleryPresentorOutput: AnyObject {
 // MARK: - MobileUPGalleryPresentor
 final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
 
+    /// Данные альбома
+    let dataAlbum = DataPhotoAlbum()
+    
     /// Интерактор
     private let interactor: MobileUPGalleryIntercatorInput
     
@@ -37,7 +40,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     
     /// Метод загрузки фото альбома
     func getPhotoAlbum() -> Void {
-        interactor.loadRendomPhoto { [weak self] result in
+        interactor.loadRendomPhoto(dataAlbum: dataAlbum) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let photos):
@@ -49,7 +52,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     }
     
     /// Метод сортировки фото по передаваемому типу
-    func sortPhoto(by sizeType: Size.EnumType, from array: [Item]) -> [ModelSortedPhoto] {
+    func sortPhoto(by sizeType: Size.EnumType, from array: [Photo]) -> [ModelSortedPhoto] {
         var objectLinks: [ModelSortedPhoto] = []
         for model in array {
             for size in model.sizes {

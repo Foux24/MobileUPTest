@@ -24,11 +24,11 @@ final class HashPhotoService {
     /// свойство для обналвения таблицы или коллекции через протокол
     private let container: DataReloadable
     
-    /// инициализтора для ребута таблицы или коллекции
+    /// инициализтора для ребута таблицы
     init(container: UITableView) {
         self.container = Table(table: container)
     }
-    
+    /// инициализтора для ребута коллекции
     init(container: UICollectionView) {
         self.container = Collection(collection: container)
     }

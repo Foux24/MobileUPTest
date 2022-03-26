@@ -43,7 +43,7 @@ final class MobileUPGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupCollection()
         presentor.fileManager = HashPhotoService(container: mobileUpGalleryView.collectionView)
         presentor.getPhotoAlbum()
         setupController()
@@ -88,8 +88,8 @@ private extension MobileUPGalleryViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .customBlackColor
     }
     
-    /// назначим серч бару и коллекции делага и дата соурс
-    func setupView() {
+    /// Настроим Коллекцию
+    func setupCollection() {
         self.mobileUpGalleryView.collectionView.registerCell(MobileUpGalleryUICollectionViewCell.self)
         self.mobileUpGalleryView.collectionView.delegate = self
         self.mobileUpGalleryView.collectionView.dataSource = self
