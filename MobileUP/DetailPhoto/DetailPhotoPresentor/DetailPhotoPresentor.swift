@@ -27,6 +27,7 @@ final class DetailPhotoPresentor: DetailPhotoPresentorOutput {
     /// Данные фото
     var data: ModelScreenDetailPhoto
     
+    /// Интерактор
     private let intercator: DetailPhotoInteractorInput
     
     /// Инициализтор
@@ -70,22 +71,24 @@ private extension DetailPhotoPresentor {
     
     /// Алерт sheet
     @objc func getAlert() -> Void {
+    
         let alertController = UIAlertController()
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
-        
-        let saveAction = UIAlertAction(title: "Добавить в Сохраненные", style: .default) { (result : UIAlertAction) -> Void in
+
+        let saveAction = UIAlertAction(title: "Добавить в альбом Сохраненные", style: .default) { (result : UIAlertAction) -> Void in
             self.savePhoto()
         }
-        
-        let shareAction = UIAlertAction(title: "Поделиться", style: .default) { (result : UIAlertAction) -> Void in
-            // ПО ТЗ реализации действия поделиться фото не требуется, Сделаю просто алерт
-            self.getAlertSharePhoto()
+
+        let shareAction = UIAlertAction(title: "Открыть Share-Menu", style: .default) { (result : UIAlertAction) -> Void in
+            self.shareMenu()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(saveAction)
         alertController.addAction(shareAction)
         viewController?.present(alertController, animated: true, completion: nil)
     }
+    
+    /// Сохранение фото
     func savePhoto() {
         self.intercator.savePhoto(dataPhoto: data.selectPhoto) { [weak self] result in
             guard let self = self else { return }
@@ -98,7 +101,7 @@ private extension DetailPhotoPresentor {
         }
     }
     
-    /// Алерт с сохранением фото
+    /// Алерт с успешным сохранением фото
     func getAlertSavePhoto() -> Void {
         let alert = UIAlertController(title: "Сохранено", message: "Фото добавленно в сохраненные", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -106,7 +109,7 @@ private extension DetailPhotoPresentor {
         viewController?.present(alert, animated: true, completion: nil)
     }
     
-    /// Алерт с сохранением фото
+    /// Алерт с ошибкой при сохранении фото
     func getErrorAlertSavePhoto(message: Error) -> Void {
         let alert = UIAlertController(title: "Error", message: "\(message)", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -114,13 +117,16 @@ private extension DetailPhotoPresentor {
         viewController?.present(alert, animated: true, completion: nil)
     }
     
-    /// Алерт с поделиться фото
-    func getAlertSharePhoto() -> Void {
-        let alert = UIAlertController(title: "Поделиться", message: "Поделиться", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(action)
-        viewController?.present(alert, animated: true, completion: nil)
+    /// Share - меню
+    func shareMenu() -> Void {
+        let photo: UIImageView = {
+            let image = UIImageView()
+            image.loadImage(data.selectPhoto.url)
+            return image
+        }()
+        let items: [Any] = [photo.image as Any]
+        let avc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        viewController?.present(avc, animated: true, completion: nil)
     }
-    
-    
+
 }
