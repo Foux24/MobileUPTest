@@ -7,7 +7,7 @@
 
 import UIKit
 
-// MARK: - MobileUpGalleryUICollectionViewCell
+// MARK: - DetailPhotoCollectionViewCell
 final class DetailPhotoCollectionViewCell: UICollectionViewCell {
     
     /// Ключ для регистрации ячкйки

@@ -59,10 +59,10 @@ private extension DetailPhotoView {
             photoView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             photoView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
-            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -34),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 90)
+            collectionView.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     

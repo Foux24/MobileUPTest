@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - DetailPhotoViewController
 final class DetailPhotoViewController: UIViewController {
     
     /// Данные фото
@@ -82,6 +83,10 @@ private extension DetailPhotoViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.navigationController?.navigationBar.tintColor = .customBlackColor
         self.navigationItem.title = "\(presentor.formateDate(date: data.selectPhoto.dateCreate))"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Vector"),
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(shared))
     }
     
     /// Настроим Коллекцию
@@ -89,5 +94,8 @@ private extension DetailPhotoViewController {
         self.detailPhotoView.collectionView.registerCell(DetailPhotoCollectionViewCell.self)
         self.detailPhotoView.collectionView.dataSource = self
         self.detailPhotoView.collectionView.delegate = self
+    }
+    
+    @objc func shared() {
     }
 }
