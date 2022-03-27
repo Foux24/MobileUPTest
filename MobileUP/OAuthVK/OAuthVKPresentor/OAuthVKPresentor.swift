@@ -52,7 +52,7 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
 private extension OAuthVKPresentor {
     
     /// Переход на следующий экран MobileUPGallery
-    func showNextController() {
+    func showNextController() -> Void {
         router.showNextScreen()
     }
 }

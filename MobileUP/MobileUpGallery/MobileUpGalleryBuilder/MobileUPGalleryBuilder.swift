@@ -14,9 +14,11 @@ class MobileUPGalleryBuilder {
     static func build() -> UIViewController {
         let networkService = NetworkService()
         let interacor = MobileUPGalleryIntercator(service: networkService)
-        let presenter = MobileUPGalleryPresentor(interactor: interacor)
+        let router = MobileUpGalleryRouter()
+        let presenter = MobileUPGalleryPresentor(interactor: interacor, router: router)
         let viewController = MobileUPGalleryViewController(presentor: presenter)
 
+        router.viewController = viewController
         presenter.viewController = viewController
         return viewController
     }

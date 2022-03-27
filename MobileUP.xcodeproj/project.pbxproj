@@ -21,6 +21,8 @@
 		590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */; };
 		590F605127EF6F53000DA37A /* MobileUPGalleryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */; };
 		590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */; };
+		596C4EF127F034AF0080DDB3 /* MobileUpGalleryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4EF027F034AF0080DDB3 /* MobileUpGalleryRouter.swift */; };
+		596C4EF727F035B40080DDB3 /* DetailPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4EF627F035B40080DDB3 /* DetailPhotoViewController.swift */; };
 		598A387727EF1C210001C534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387627EF1C210001C534 /* AppDelegate.swift */; };
 		598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387827EF1C210001C534 /* SceneDelegate.swift */; };
 		598A388027EF1C220001C534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598A387F27EF1C220001C534 /* Assets.xcassets */; };
@@ -53,6 +55,8 @@
 		590F604E27EF6F35000DA37A /* MobileUPGalleryPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryPresentor.swift; sourceTree = "<group>"; };
 		590F605027EF6F53000DA37A /* MobileUPGalleryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryBuilder.swift; sourceTree = "<group>"; };
 		590F605227EF71A7000DA37A /* MobileUPGalleryIntercator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryIntercator.swift; sourceTree = "<group>"; };
+		596C4EF027F034AF0080DDB3 /* MobileUpGalleryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUpGalleryRouter.swift; sourceTree = "<group>"; };
+		596C4EF627F035B40080DDB3 /* DetailPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoViewController.swift; sourceTree = "<group>"; };
 		598A387327EF1C210001C534 /* MobileUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		598A387627EF1C210001C534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		598A387827EF1C210001C534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,38 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		596C4EF227F035760080DDB3 /* DetailPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				596C4EF427F035900080DDB3 /* DetailPhotoView */,
+				596C4EF327F035810080DDB3 /* DetailPhotoViewController */,
+			);
+			path = DetailPhoto;
+			sourceTree = "<group>";
+		};
+		596C4EF327F035810080DDB3 /* DetailPhotoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				596C4EF627F035B40080DDB3 /* DetailPhotoViewController.swift */,
+			);
+			path = DetailPhotoViewController;
+			sourceTree = "<group>";
+		};
+		596C4EF427F035900080DDB3 /* DetailPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				596C4EF527F035970080DDB3 /* Cell */,
+			);
+			path = DetailPhotoView;
+			sourceTree = "<group>";
+		};
+		596C4EF527F035970080DDB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		598A386A27EF1C210001C534 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +162,7 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
+				596C4EF227F035760080DDB3 /* DetailPhoto */,
 				590F604027EF3EBE000DA37A /* MobileUpGallery */,
 				598A38A127EF38810001C534 /* OAuthVK */,
 				598A388E27EF1F870001C534 /* MainScreen */,
@@ -262,6 +299,7 @@
 		599183DA27EFA4500059580A /* MobileUpGalleryRouter */ = {
 			isa = PBXGroup;
 			children = (
+				596C4EF027F034AF0080DDB3 /* MobileUpGalleryRouter.swift */,
 			);
 			path = MobileUpGalleryRouter;
 			sourceTree = "<group>";
@@ -417,6 +455,7 @@
 				599183C227EF7AAD0059580A /* MobileUPGalleryView.swift in Sources */,
 				598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */,
 				598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */,
+				596C4EF127F034AF0080DDB3 /* MobileUpGalleryRouter.swift in Sources */,
 				590F604927EF5F88000DA37A /* NetworkService.swift in Sources */,
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */,
@@ -430,6 +469,7 @@
 				599183D227EF8A560059580A /* MobileUPGalleryTitleView.swift in Sources */,
 				599183CD27EF84950059580A /* ModelSortedPhoto.swift in Sources */,
 				590F603F27EF3D0E000DA37A /* OAuthVKBuilder.swift in Sources */,
+				596C4EF727F035B40080DDB3 /* DetailPhotoViewController.swift in Sources */,
 				590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */,
 				590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */,
 				590F603927EF39CC000DA37A /* OAuthVKViewController.swift in Sources */,

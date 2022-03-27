@@ -15,6 +15,7 @@ protocol MobileUPGalleryPresentorInput: AnyObject {
 /// Протокол с выходными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorOutput: AnyObject {
     func getPhotoAlbum() -> Void
+    func showDetailPhoto() -> Void
     var fileManager: HashPhotoService? { get set }
 }
 
@@ -22,10 +23,13 @@ protocol MobileUPGalleryPresentorOutput: AnyObject {
 final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
 
     /// Данные альбома
-    let dataAlbum = DataPhotoAlbum()
+    private let dataAlbum = DataPhotoAlbum()
     
     /// Интерактор
     private let interactor: MobileUPGalleryIntercatorInput
+    
+    /// Роутер
+    private let router: MobileUpGalleryRouterInput
     
     /// Вью Контроллер
     weak var viewController: (UIViewController & MobileUPGalleryPresentorInput)?
@@ -34,8 +38,9 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     var fileManager: HashPhotoService?
     
     /// Инициализтор
-    init(interactor: MobileUPGalleryIntercatorInput) {
+    init(interactor: MobileUPGalleryIntercatorInput, router: MobileUpGalleryRouterInput) {
         self.interactor = interactor
+        self.router = router
     }
     
     /// Метод загрузки фото альбома
@@ -51,6 +56,14 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
         }
     }
     
+    /// Метод для перехода
+    func showDetailPhoto() -> Void {
+        self.showNextController()
+    }
+}
+
+private extension MobileUPGalleryPresentor {
+    
     /// Метод сортировки фото по передаваемому типу
     func sortPhoto(by sizeType: Size.EnumType, from array: [Photo]) -> [ModelSortedPhoto] {
         var objectLinks: [ModelSortedPhoto] = []
@@ -63,5 +76,10 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
             }
         }
         return objectLinks
+    }
+    
+    /// Переход на следующий экран DetailPhoto
+    func showNextController() {
+        self.router.showNextScreen()
     }
 }
