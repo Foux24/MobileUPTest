@@ -12,8 +12,12 @@ class DetailPhotoBuilder {
     
     /// Билд контроллера
     static func build(data: ModelScreenDetailPhoto) -> UIViewController {
-        let presenter = DetailPhotoPresentor()
-        let viewController = DetailPhotoViewController(data: data, presentor: presenter)
+        let networkService = NetworkService()
+        let interacor = DetailPhotoInteractor(service: networkService)
+        let presenter = DetailPhotoPresentor(data: data, intercator: interacor)
+        let viewController = DetailPhotoViewController(presentor: presenter)
+        
+        presenter.viewController = viewController
         return viewController
     }
 }

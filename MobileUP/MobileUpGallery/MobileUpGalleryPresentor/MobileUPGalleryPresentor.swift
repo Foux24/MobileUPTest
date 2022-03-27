@@ -70,7 +70,7 @@ private extension MobileUPGalleryPresentor {
         for model in array {
             for size in model.sizes {
                 if size.type == sizeType {
-                    let modelPhoto = ModelSortedPhoto(url: size.url, dateCreate: model.date)
+                    let modelPhoto = ModelSortedPhoto(url: size.url, dateCreate: model.date, id: model.id, ownerID: model.ownerID)
                     objectLinks.append(modelPhoto)
                 }
             }

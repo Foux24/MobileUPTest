@@ -10,15 +10,11 @@ import UIKit
 // MARK: - DetailPhotoViewController
 final class DetailPhotoViewController: UIViewController {
     
-    /// Данные фото
-    private var data: ModelScreenDetailPhoto
-    
     /// Презентор
     private var presentor: DetailPhotoPresentorOutput
     
     /// Инициализтор
-    init(data: ModelScreenDetailPhoto, presentor: DetailPhotoPresentorOutput) {
-        self.data = data
+    init(presentor: DetailPhotoPresentorOutput) {
         self.presentor = presentor
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,10 +36,10 @@ final class DetailPhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupController()
         self.setupCollection()
-        self.detailPhotoView.photoView.loadImage(data.selectPhoto.url)
+        self.detailPhotoView.photoView.loadImage(presentor.data.selectPhoto.url)
         self.presentor.fileManager = HashPhotoService(container: detailPhotoView.collectionView)
+        self.presentor.setupController()
     }
 }
 
@@ -52,13 +48,13 @@ extension DetailPhotoViewController: UICollectionViewDataSource {
     
     /// Кол-во итемов в секции коллекции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.arrayPhoto.count
+        return presentor.data.arrayPhoto.count
     }
     
     /// Данные для итема
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = detailPhotoView.collectionView.dequeueReusableCell(forIndexPath: indexPath) as DetailPhotoCollectionViewCell
-        let image = self.presentor.fileManager?.photo(atIndexPath: indexPath, byUrl: data.arrayPhoto[indexPath.row].url)
+        let image = self.presentor.fileManager?.photo(atIndexPath: indexPath, byUrl: presentor.data.arrayPhoto[indexPath.row].url)
         cell.configureImage(with: image)
         return cell
     }
@@ -69,7 +65,7 @@ extension DetailPhotoViewController: UICollectionViewDelegate {
     
     /// Действие при выделении итема
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photo = data.arrayPhoto[indexPath.row]
+        let photo = presentor.data.arrayPhoto[indexPath.row]
         self.detailPhotoView.photoView.loadImage(photo.url)
         self.navigationItem.title = "\(presentor.formateDate(date: photo.dateCreate))"
     }
@@ -78,24 +74,10 @@ extension DetailPhotoViewController: UICollectionViewDelegate {
 // MARK: - Private
 private extension DetailPhotoViewController {
     
-    /// Настройка контроллера
-    func setupController() {
-        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        self.navigationController?.navigationBar.tintColor = .customBlackColor
-        self.navigationItem.title = "\(presentor.formateDate(date: data.selectPhoto.dateCreate))"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "Vector"),
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(shared))
-    }
-    
     /// Настроим Коллекцию
     func setupCollection() {
         self.detailPhotoView.collectionView.registerCell(DetailPhotoCollectionViewCell.self)
         self.detailPhotoView.collectionView.dataSource = self
         self.detailPhotoView.collectionView.delegate = self
-    }
-    
-    @objc func shared() {
     }
 }

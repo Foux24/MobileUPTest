@@ -13,7 +13,7 @@ protocol MobileUPGalleryIntercatorInput {
 }
 
 // MARK: - SearchPhotoInteractor
-class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
+final class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
 
     /// Сервис по загрузки данных
     private let service: NetworkServiceOutput

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - JsonModelPhotoAlbum
 struct JsonModelPhotoAlbum: Codable {
     let response: Response
 }

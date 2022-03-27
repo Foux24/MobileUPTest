@@ -9,5 +9,5 @@ import Foundation
 /// Для сортировки
 struct ModelSortedPhoto {
     var url: String
-    var dateCreate: Int
+    var dateCreate, id, ownerID: Int
 }
