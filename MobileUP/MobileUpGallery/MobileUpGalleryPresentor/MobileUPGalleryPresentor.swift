@@ -31,6 +31,9 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     /// Роутер
     private let router: MobileUpGalleryRouterInput
     
+    /// Обработчик ошибок
+    private let errorHandler = ErrorHandler()
+    
     /// Вью Контроллер
     weak var viewController: (UIViewController & MobileUPGalleryPresentorInput)?
     
@@ -51,7 +54,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
             case .success(let photos):
                 self.viewController?.photos = self.sortPhoto(by: .r, from: photos)
             case .failure(let error):
-                print(error)
+                self.getErrorAlertSavePhoto(message: self.errorHandler.errorMassage(error: error))
             }
         }
     }
@@ -81,5 +84,13 @@ private extension MobileUPGalleryPresentor {
     /// Переход на следующий экран DetailPhoto
     func showNextController(data: ModelScreenDetailPhoto) {
         self.router.showNextScreen(data: data)
+    }
+    
+    /// Алерт с ошибкой при загрузки фото
+    func getErrorAlertSavePhoto(message: String) -> Void {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }

@@ -101,7 +101,8 @@ final class NetworkService: NetworkServiceOutput {
                 let response = try decoder.decode(JsonModelPhotoAlbum.self, from: data).response.items
                 resolver.fulfill(response)
             } catch {
-                resolver.reject(PhotoAlbumError.parseError)
+                let response = try decoder.decode(Errors.self, from: data).error.errorCode
+                resolver.reject(errorSwitch(codeError: response))
             }
         }
     }
@@ -179,6 +180,7 @@ private extension NetworkService {
         return url
     }
     
+    /// Определяем по переданому коду ошибки ошибку
     func errorSwitch(codeError code: Int) -> PhotoAlbumError {
         switch code {
         case 1: return .anUnknownErrorHasOccurred

@@ -9,7 +9,7 @@ import Foundation
 
 /// Проктол взаимодействия с интерактором
 protocol DetailPhotoInteractorInput {
-    func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, Error>) -> Void)
+    func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, PhotoAlbumError>) -> Void)
 }
 
 // MARK: - SearchPhotoInteractor
@@ -24,14 +24,14 @@ final class DetailPhotoInteractor: DetailPhotoInteractorInput {
     }
     
     /// Загруза  фото из альбома
-    func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, Error>) -> Void) {
+    func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, PhotoAlbumError>) -> Void) {
         service.savePhotoPromisURL(ownerID: String(dataPhoto.ownerID), idPhoto: String(dataPhoto.id))
             .then(on: DispatchQueue.global(), service.savePhotoPromisData(_:))
             .then(service.savePhotoPromiseParsed(_:))
             .done(on: DispatchQueue.main) { response in
                 completion(.success(response))
             }.catch { error in
-                completion(.failure(error))
+                completion(.failure(error as! PhotoAlbumError))
             }
     }
 }
