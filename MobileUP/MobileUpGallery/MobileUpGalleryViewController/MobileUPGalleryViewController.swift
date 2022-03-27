@@ -72,7 +72,7 @@ extension MobileUPGalleryViewController: UICollectionViewDelegate {
     
     /// Действие при выделении итема
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presentor.showDetailPhoto()
+        self.presentor.showDetailPhoto(data: ModelScreenDetailPhoto(selectPhoto: photos[indexPath.row], arrayPhoto: photos))
     }
 }
 

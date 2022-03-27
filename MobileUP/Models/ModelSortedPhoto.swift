@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+/// Для сортировки
 struct ModelSortedPhoto {
     var url: String
     var dateCreate: Int

@@ -15,7 +15,7 @@ protocol MobileUPGalleryPresentorInput: AnyObject {
 /// Протокол с выходными параметрами для взаимодействия с ViewController
 protocol MobileUPGalleryPresentorOutput: AnyObject {
     func getPhotoAlbum() -> Void
-    func showDetailPhoto() -> Void
+    func showDetailPhoto(data: ModelScreenDetailPhoto) -> Void
     var fileManager: HashPhotoService? { get set }
 }
 
@@ -57,8 +57,8 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     }
     
     /// Метод для перехода
-    func showDetailPhoto() -> Void {
-        self.showNextController()
+    func showDetailPhoto(data: ModelScreenDetailPhoto) -> Void {
+        self.showNextController(data: data)
     }
 }
 
@@ -79,7 +79,7 @@ private extension MobileUPGalleryPresentor {
     }
     
     /// Переход на следующий экран DetailPhoto
-    func showNextController() {
-        self.router.showNextScreen()
+    func showNextController(data: ModelScreenDetailPhoto) {
+        self.router.showNextScreen(data: data)
     }
 }
