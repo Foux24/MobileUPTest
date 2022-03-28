@@ -16,6 +16,10 @@ protocol NetworkServiceOutput: AnyObject {
     func savePhotoPromisURL(ownerID: String, idPhoto: String) -> Promise<URL>
     func savePhotoPromisData(_ url: URL) -> Promise<Data>
     func savePhotoPromiseParsed(_ data: Data) -> Promise<JsonModelPhotoCopy>
+        
+    func validationTokenPromisURL() -> Promise<URL>
+    func validationTokenPromisData(_ url: URL) -> Promise<Data>
+    func validationTokenPromiseParsed(_ data: Data) -> Promise<ValidToken>
 }
 
 // MARK: - Request PhotoAlbum Vk.API
@@ -23,6 +27,7 @@ protocol NetworkServiceOutput: AnyObject {
 fileprivate enum TypeMethods: String {
     case photosGetAll = "/method/photos.get"
     case photosCopy = "/method/photos.copy"
+    case validationToken = "/method/secure.checkToken"
 }
 
 /// Cписок типов запросов
@@ -33,9 +38,6 @@ fileprivate enum TypeRequest: String {
 // MARK: - Error
 /// Список  ошибок при запросе
 enum PhotoAlbumError: Error {
-    case error
-    case accessDenied
-    case anUnknownErrorHasOccurred
     case parseError
     case errorTask
 }
@@ -65,7 +67,7 @@ final class NetworkService: NetworkServiceOutput {
     /// Конфигурации УРЛ
     func loadPhotoAlbumPromisURL(ownerID: String, albumID: String) -> Promise<URL> {
         
-        let token = Session.instance.token ?? ""
+        let token = Session.instance.session.token ?? ""
         
         let params: [String: String] = ["owner_id" : ownerID,
                                         "album_id" : albumID
@@ -101,17 +103,17 @@ final class NetworkService: NetworkServiceOutput {
                 let response = try decoder.decode(JsonModelPhotoAlbum.self, from: data).response.items
                 resolver.fulfill(response)
             } catch {
-                let response = try decoder.decode(Errors.self, from: data).error.errorCode
-                resolver.reject(errorSwitch(codeError: response))
+                let response = try decoder.decode(Errors.self, from: data).error
+                resolver.reject(response)
             }
         }
     }
     
-    // MARK: - Метод сохранения фото с сохраненные
+    // MARK: - Метод сохранения фото в альбом сохраненные
     /// Конфигурации УРЛ
     func savePhotoPromisURL(ownerID: String, idPhoto: String) -> Promise<URL> {
         
-        let token = Session.instance.token ?? ""
+        let token = Session.instance.session.token ?? ""
         
         let params: [String: String] = ["owner_id" : ownerID,
                                         "photo_id" : idPhoto
@@ -147,8 +149,57 @@ final class NetworkService: NetworkServiceOutput {
                 let response = try decoder.decode(JsonModelPhotoCopy.self, from: data)
                 resolver.fulfill(response)
             } catch {
-                let response = try decoder.decode(Errors.self, from: data).error.errorCode
-                resolver.reject(errorSwitch(codeError: response))
+                let response = try decoder.decode(Errors.self, from: data).error
+                resolver.reject(response)
+            }
+        }
+    }
+    
+    // MARK: - Проверка валидности токена
+    /// Конфигурации УРЛ
+    func validationTokenPromisURL() -> Promise<URL> {
+        
+        let appData = DataAppVK()
+        
+        let token = Session.instance.session.token ?? ""
+        
+        let params: [String: String] = ["token" : token,
+                                        "client_secret" : appData.clientSecret
+        ]
+        
+        let urlConfig = self.configureUrl(token: appData.serviceToken,
+                                          method: .validationToken,
+                                          httpMethod: .get,
+                                          params: params)
+        print(urlConfig)
+        return Promise { resolver in
+            let url = urlConfig
+            resolver.fulfill(url)
+        }
+    }
+    
+    /// Конфигурация ответа от сервера в дату
+    func validationTokenPromisData(_ url: URL) -> Promise<Data> {
+        return Promise { resolver in
+            session.dataTask(with: url) { data, response, error in
+                guard let data = data else {
+                    resolver.reject(PhotoAlbumError.errorTask)
+                    return
+                }
+                resolver.fulfill(data)
+            }.resume()
+        }
+    }
+    
+    /// Парсинг
+    func validationTokenPromiseParsed(_ data: Data) -> Promise<ValidToken> {
+        return Promise { resolver in
+            do {
+                let response = try decoder.decode(JsonModelValidationToken.self, from: data).response
+                resolver.fulfill(response)
+            } catch {
+                let response = try decoder.decode(Errors.self, from: data).error
+                resolver.reject(response)
             }
         }
     }
@@ -178,14 +229,5 @@ private extension NetworkService {
             fatalError("URL is invalid")
         }
         return url
-    }
-    
-    /// Определяем по переданому коду ошибки ошибку
-    func errorSwitch(codeError code: Int) -> PhotoAlbumError {
-        switch code {
-        case 1: return .anUnknownErrorHasOccurred
-        case 15: return .accessDenied
-        default: return .error
-        }
     }
 }

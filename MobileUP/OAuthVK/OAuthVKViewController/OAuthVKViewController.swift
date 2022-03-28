@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 
+
 // MARK: -  OAuthVKViewController
 final class OAuthVKViewController: UIViewController {
     
@@ -69,14 +70,10 @@ extension OAuthVKViewController: WKNavigationDelegate {
         
         if let token = params["access_token"], let userId = params["user_id"] {
             
-            Session.instance.token = token
-            Session.instance.userId = Int(userId) ?? 0
-            
-            print(token)
-            print(userId)
-            
+            let session = DataSession(token: token, userId: Int(userId) ?? 0)
+            Session.instance.addSession(session)
             decisionHandler(.cancel)
-            presentor.showMobileUPGallery()
+            presentor.dismissScreen()
         }
     }
 }

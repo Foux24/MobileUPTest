@@ -13,10 +13,12 @@ struct Errors: Codable {
 }
 
 // MARK: - Error
-struct ErrorVK: Codable {
+struct ErrorVK: Codable, Error {
     let errorCode: Int
+    let errorMsg: String
 
     enum CodingKeys: String, CodingKey {
         case errorCode = "error_code"
+        case errorMsg = "error_msg"
     }
 }

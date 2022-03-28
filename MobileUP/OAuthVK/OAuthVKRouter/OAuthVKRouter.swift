@@ -9,7 +9,7 @@ import UIKit
 
 /// Протокол для общения роутера с презентором
 protocol OAuthVKRouterInput {
-    func showNextScreen() -> Void
+    func showDismissScreen() -> Void
 }
 
 // MARK: - OAuthVKRouter
@@ -18,10 +18,14 @@ class OAuthVKRouter: OAuthVKRouterInput {
     /// Пропертя с ViewController-ом
     weak var viewController: UIViewController?
     
+    /// Ссылка на главный экран
+    weak var mainViewController: UIViewController?
+    
     /// Переход на контроллер с альбомом фотографий
-    func showNextScreen() -> Void {
-        let mobileUPGalleryViewController = MobileUPGalleryBuilder.build()
-        mobileUPGalleryViewController.modalPresentationStyle = .fullScreen
-        viewController?.present(mobileUPGalleryViewController, animated: true, completion: nil)
+    func showDismissScreen() -> Void {
+        viewController?.dismiss(animated: true, completion: {
+            let mobileUPGalleryViewController = MobileUPGalleryBuilder.build()
+            self.mainViewController?.navigationController?.pushViewController(mobileUPGalleryViewController, animated: true)
+        })
     }
 }

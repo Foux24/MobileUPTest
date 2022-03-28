@@ -10,6 +10,7 @@ import UIKit
 /// Протокол для общения роутера с презентором
 protocol MobileUpGalleryRouterInput {
     func showNextScreen(data: ModelScreenDetailPhoto) -> Void
+    func logaut() -> Void
 }
 
 // MARK: - OAuthVKRouter
@@ -22,5 +23,11 @@ class MobileUpGalleryRouter: MobileUpGalleryRouterInput {
     func showNextScreen(data: ModelScreenDetailPhoto) -> Void {
         let vc = DetailPhotoBuilder.build(data: data)
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    /// Выход на рут контроллер
+    func logaut() -> Void {
+        Session.instance.cleanSession()
+        viewController?.navigationController?.popToRootViewController(animated: true)
     }
 }

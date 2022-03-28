@@ -43,10 +43,11 @@ final class MobileUPGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(Session.instance.session.token!)
         setupCollection()
         presentor.fileManager = HashPhotoService(container: mobileUpGalleryView.collectionView)
         presentor.getPhotoAlbum()
-        setupController()
+        presentor.setupController()
     }
 }
 
@@ -82,22 +83,10 @@ extension MobileUPGalleryViewController: MobileUPGalleryPresentorInput {}
 // MARK: - Private
 private extension MobileUPGalleryViewController {
     
-    /// Настройка контроллера
-    func setupController() {
-        self.navigationItem.titleView = MobileUPGalleryTitleView()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logout))
-        self.navigationItem.rightBarButtonItem?.tintColor = .customBlackColor
-    }
-    
     /// Настроим Коллекцию
     func setupCollection() {
         self.mobileUpGalleryView.collectionView.registerCell(MobileUpGalleryUICollectionViewCell.self)
         self.mobileUpGalleryView.collectionView.delegate = self
         self.mobileUpGalleryView.collectionView.dataSource = self
-    }
-    
-    @objc func logout() {
-        print("ТЫ типа вышел")
-//        Session.instance.clean()
     }
 }

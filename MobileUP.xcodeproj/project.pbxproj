@@ -32,7 +32,8 @@
 		596C4F0727F05C070080DDB3 /* JsonModelPhotoCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4F0627F05C070080DDB3 /* JsonModelPhotoCopy.swift */; };
 		596C4F0A27F05D280080DDB3 /* DetailPhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4F0927F05D280080DDB3 /* DetailPhotoInteractor.swift */; };
 		596C4F0C27F06A7C0080DDB3 /* JsonModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4F0B27F06A7C0080DDB3 /* JsonModelError.swift */; };
-		596C4F0F27F0799F0080DDB3 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4F0E27F0799F0080DDB3 /* ErrorHandler.swift */; };
+		596C4F1227F086B00080DDB3 /* SessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596C4F1127F086B00080DDB3 /* SessionCaretaker.swift */; };
+		5982915727F1A22F003D9CCC /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5982915627F1A22F003D9CCC /* MainScreenRouter.swift */; };
 		598A387727EF1C210001C534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387627EF1C210001C534 /* AppDelegate.swift */; };
 		598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598A387827EF1C210001C534 /* SceneDelegate.swift */; };
 		598A388027EF1C220001C534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 598A387F27EF1C220001C534 /* Assets.xcassets */; };
@@ -49,6 +50,12 @@
 		599183CF27EF89BF0059580A /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */; };
 		599183D227EF8A560059580A /* MobileUPGalleryTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */; };
 		599183D627EF9EFD0059580A /* DataPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599183D527EF9EFD0059580A /* DataPhotoAlbum.swift */; };
+		59BA6DC427F08F9D002AFE8F /* ModelDataSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DC327F08F9D002AFE8F /* ModelDataSession.swift */; };
+		59BA6DC827F0AB35002AFE8F /* DataAppVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DC727F0AB35002AFE8F /* DataAppVK.swift */; };
+		59BA6DCD27F0ADED002AFE8F /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DCC27F0ADED002AFE8F /* MainScreenInteractor.swift */; };
+		59BA6DCF27F0AEE1002AFE8F /* MainScreenPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DCE27F0AEE1002AFE8F /* MainScreenPresentor.swift */; };
+		59BA6DD227F0B01F002AFE8F /* MainScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DD127F0B01F002AFE8F /* MainScreenBuilder.swift */; };
+		59BA6DD427F0CFED002AFE8F /* JsonModelValidationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BA6DD327F0CFED002AFE8F /* JsonModelValidationToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,7 +83,8 @@
 		596C4F0627F05C070080DDB3 /* JsonModelPhotoCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModelPhotoCopy.swift; sourceTree = "<group>"; };
 		596C4F0927F05D280080DDB3 /* DetailPhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoInteractor.swift; sourceTree = "<group>"; };
 		596C4F0B27F06A7C0080DDB3 /* JsonModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModelError.swift; sourceTree = "<group>"; };
-		596C4F0E27F0799F0080DDB3 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		596C4F1127F086B00080DDB3 /* SessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCaretaker.swift; sourceTree = "<group>"; };
+		5982915627F1A22F003D9CCC /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		598A387327EF1C210001C534 /* MobileUP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		598A387627EF1C210001C534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		598A387827EF1C210001C534 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +103,12 @@
 		599183CE27EF89BF0059580A /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		599183D127EF8A560059580A /* MobileUPGalleryTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileUPGalleryTitleView.swift; sourceTree = "<group>"; };
 		599183D527EF9EFD0059580A /* DataPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPhotoAlbum.swift; sourceTree = "<group>"; };
+		59BA6DC327F08F9D002AFE8F /* ModelDataSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataSession.swift; sourceTree = "<group>"; };
+		59BA6DC727F0AB35002AFE8F /* DataAppVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAppVK.swift; sourceTree = "<group>"; };
+		59BA6DCC27F0ADED002AFE8F /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
+		59BA6DCE27F0AEE1002AFE8F /* MainScreenPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresentor.swift; sourceTree = "<group>"; };
+		59BA6DD127F0B01F002AFE8F /* MainScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenBuilder.swift; sourceTree = "<group>"; };
+		59BA6DD327F0CFED002AFE8F /* JsonModelValidationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModelValidationToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +143,8 @@
 				590F604627EF5F77000DA37A /* JsonModelPhotoAlbum.swift */,
 				596C4F0627F05C070080DDB3 /* JsonModelPhotoCopy.swift */,
 				596C4F0B27F06A7C0080DDB3 /* JsonModelError.swift */,
+				59BA6DD327F0CFED002AFE8F /* JsonModelValidationToken.swift */,
+				59BA6DC727F0AB35002AFE8F /* DataAppVK.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -194,12 +210,14 @@
 			path = DetailPhotoInteractor;
 			sourceTree = "<group>";
 		};
-		596C4F0D27F079850080DDB3 /* ErrorHandler */ = {
+		596C4F1027F086930080DDB3 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				596C4F0E27F0799F0080DDB3 /* ErrorHandler.swift */,
+				596C4F1127F086B00080DDB3 /* SessionCaretaker.swift */,
+				590F603427EF390B000DA37A /* Session.swift */,
+				59BA6DC327F08F9D002AFE8F /* ModelDataSession.swift */,
 			);
-			path = ErrorHandler;
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		598A386A27EF1C210001C534 = {
@@ -221,7 +239,7 @@
 		598A387527EF1C210001C534 /* MobileUP */ = {
 			isa = PBXGroup;
 			children = (
-				596C4F0D27F079850080DDB3 /* ErrorHandler */,
+				596C4F1027F086930080DDB3 /* UserDefaults */,
 				596C4EF227F035760080DDB3 /* DetailPhoto */,
 				590F604027EF3EBE000DA37A /* MobileUpGallery */,
 				598A38A127EF38810001C534 /* OAuthVK */,
@@ -232,7 +250,6 @@
 				598A389E27EF2C980001C534 /* Fonts */,
 				598A389B27EF26CC0001C534 /* Extension */,
 				598A388D27EF1F3D0001C534 /* AppFiles */,
-				598A38A227EF38D40001C534 /* Session */,
 				598A387F27EF1C220001C534 /* Assets.xcassets */,
 				598A388127EF1C220001C534 /* LaunchScreen.storyboard */,
 				598A388427EF1C220001C534 /* Info.plist */,
@@ -252,6 +269,10 @@
 		598A388E27EF1F870001C534 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				59BA6DD027F0B00A002AFE8F /* MainScreenBuilder */,
+				59BA6DCB27F0ADDA002AFE8F /* MainScreenRouter */,
+				59BA6DCA27F0ADCF002AFE8F /* MainScreenInteractor */,
+				59BA6DC927F0ADC3002AFE8F /* MainScreenPresentor */,
 				599183E227EFA4DB0059580A /* MainScreenView */,
 				599183E127EFA4C60059580A /* MainScreenViewController */,
 			);
@@ -288,14 +309,6 @@
 				599183DC27EFA4790059580A /* OAuthVKView */,
 			);
 			path = OAuthVK;
-			sourceTree = "<group>";
-		};
-		598A38A227EF38D40001C534 /* Session */ = {
-			isa = PBXGroup;
-			children = (
-				590F603427EF390B000DA37A /* Session.swift */,
-			);
-			path = Session;
 			sourceTree = "<group>";
 		};
 		599183C527EF7C480059580A /* Cell */ = {
@@ -430,6 +443,38 @@
 			path = MainScreenView;
 			sourceTree = "<group>";
 		};
+		59BA6DC927F0ADC3002AFE8F /* MainScreenPresentor */ = {
+			isa = PBXGroup;
+			children = (
+				59BA6DCE27F0AEE1002AFE8F /* MainScreenPresentor.swift */,
+			);
+			path = MainScreenPresentor;
+			sourceTree = "<group>";
+		};
+		59BA6DCA27F0ADCF002AFE8F /* MainScreenInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				59BA6DCC27F0ADED002AFE8F /* MainScreenInteractor.swift */,
+			);
+			path = MainScreenInteractor;
+			sourceTree = "<group>";
+		};
+		59BA6DCB27F0ADDA002AFE8F /* MainScreenRouter */ = {
+			isa = PBXGroup;
+			children = (
+				5982915627F1A22F003D9CCC /* MainScreenRouter.swift */,
+			);
+			path = MainScreenRouter;
+			sourceTree = "<group>";
+		};
+		59BA6DD027F0B00A002AFE8F /* MainScreenBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				59BA6DD127F0B01F002AFE8F /* MainScreenBuilder.swift */,
+			);
+			path = MainScreenBuilder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,20 +559,28 @@
 				598A387727EF1C210001C534 /* AppDelegate.swift in Sources */,
 				590F604227EF3F18000DA37A /* MobileUPGalleryViewController.swift in Sources */,
 				590F604727EF5F77000DA37A /* JsonModelPhotoAlbum.swift in Sources */,
+				59BA6DCD27F0ADED002AFE8F /* MainScreenInteractor.swift in Sources */,
 				599183C227EF7AAD0059580A /* MobileUPGalleryView.swift in Sources */,
+				5982915727F1A22F003D9CCC /* MainScreenRouter.swift in Sources */,
 				596C4F0027F041D00080DDB3 /* DetailPhotoPresentor.swift in Sources */,
 				598A389D27EF26DC0001C534 /* Extension+UIColor.swift in Sources */,
 				596C4EFB27F03B1D0080DDB3 /* Extension+UIImageView.swift in Sources */,
+				59BA6DD427F0CFED002AFE8F /* JsonModelValidationToken.swift in Sources */,
+				59BA6DD227F0B01F002AFE8F /* MainScreenBuilder.swift in Sources */,
 				596C4F0327F042610080DDB3 /* DetailPhotoBuilder.swift in Sources */,
 				598A387927EF1C210001C534 /* SceneDelegate.swift in Sources */,
+				59BA6DC827F0AB35002AFE8F /* DataAppVK.swift in Sources */,
 				596C4EF127F034AF0080DDB3 /* MobileUpGalleryRouter.swift in Sources */,
 				590F604927EF5F88000DA37A /* NetworkService.swift in Sources */,
 				590F603727EF39C2000DA37A /* OAuthVKView.swift in Sources */,
 				596C4F0A27F05D280080DDB3 /* DetailPhotoInteractor.swift in Sources */,
+				59BA6DCF27F0AEE1002AFE8F /* MainScreenPresentor.swift in Sources */,
 				599183C727EF7C6A0059580A /* MobileUpGalleryUICollectionViewCell.swift in Sources */,
 				598A389027EF1FAF0001C534 /* MainScreenViewController.swift in Sources */,
 				599183D627EF9EFD0059580A /* DataPhotoAlbum.swift in Sources */,
+				59BA6DC427F08F9D002AFE8F /* ModelDataSession.swift in Sources */,
 				596C4EF927F037BF0080DDB3 /* ModelScreenDetailPhoto.swift in Sources */,
+				596C4F1227F086B00080DDB3 /* SessionCaretaker.swift in Sources */,
 				596C4F0527F046C10080DDB3 /* DetailPhotoCollectionViewCell.swift in Sources */,
 				599183CA27EF7F960059580A /* HashPhotoService.swift in Sources */,
 				590F604F27EF6F35000DA37A /* MobileUPGalleryPresentor.swift in Sources */,
@@ -542,7 +595,6 @@
 				596C4F0727F05C070080DDB3 /* JsonModelPhotoCopy.swift in Sources */,
 				590F605327EF71A7000DA37A /* MobileUPGalleryIntercator.swift in Sources */,
 				590F603B27EF39E1000DA37A /* OAuthVKPresentor.swift in Sources */,
-				596C4F0F27F0799F0080DDB3 /* ErrorHandler.swift in Sources */,
 				590F603927EF39CC000DA37A /* OAuthVKViewController.swift in Sources */,
 				596C4EFD27F03B500080DDB3 /* DetailPhotoView.swift in Sources */,
 			);

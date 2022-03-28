@@ -9,7 +9,7 @@ import UIKit
 
 /// Проктол взаимодействия с интерактором
 protocol MobileUPGalleryIntercatorInput {
-    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], PhotoAlbumError>) -> Void)
+    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], ErrorVK>) -> Void)
 }
 
 // MARK: - SearchPhotoInteractor
@@ -24,14 +24,14 @@ final class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
     }
     
     /// Загруза  фото из альбома
-    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], PhotoAlbumError>) -> Void) {
+    func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], ErrorVK>) -> Void) {
         service.loadPhotoAlbumPromisURL(ownerID: dataAlbum.ownerID, albumID: dataAlbum.albumID)
             .then(on: DispatchQueue.global(), service.loadPhotoAlbumPromisData(_:))
             .then(service.loadPhotoAlbumPromiseParsed(_:))
             .done(on: DispatchQueue.main) { response in
                 completion(.success(response))
             }.catch { error in
-                completion(.failure(error as! PhotoAlbumError))
+                completion(.failure(error as! ErrorVK))
             }
     }
 }

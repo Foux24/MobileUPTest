@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol flagTrueOAuthInput: AnyObject {
+    var flagTrueOAuth: Bool { get set }
+}
+
 /// Протокол для общения презентора с контроллером
 protocol OAuthVKPresentorOutout: AnyObject {
     func loadLoginVK(comlition: @escaping (URLRequest) -> Void)
-    func showMobileUPGallery() -> Void
+    func dismissScreen() -> Void
 }
 
 // MARK: - OAuthVKPresentor
@@ -25,8 +29,8 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
     }
 
     /// Метод для перехода
-    func showMobileUPGallery() -> Void {
-        showNextController()
+    func dismissScreen() -> Void {
+        showDismissScreen()
     }
     
     /// Метод конфигурации запроса к VK.API
@@ -36,10 +40,10 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
         urlComponents.host = "oauth.vk.com"
         urlComponents.path = "/authorize"
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "8002144"),
+            URLQueryItem(name: "client_id", value: "8002071"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html" ),
-            URLQueryItem(name: "scope", value: "offline, photos, groups, wall"),
+            URLQueryItem(name: "scope", value: "photos, groups"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "revoke", value: "0")
         ]
@@ -52,7 +56,7 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
 private extension OAuthVKPresentor {
     
     /// Переход на следующий экран MobileUPGallery
-    func showNextController() -> Void {
-        router.showNextScreen()
+    func showDismissScreen() -> Void {
+        router.showDismissScreen()
     }
 }

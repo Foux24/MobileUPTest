@@ -30,9 +30,6 @@ final class DetailPhotoPresentor: DetailPhotoPresentorOutput {
     /// Интерактор
     private let intercator: DetailPhotoInteractorInput
     
-    /// Обработчик ошибок
-    private let errorHandler = ErrorHandler()
-    
     /// Инициализтор
     init(data: ModelScreenDetailPhoto, intercator: DetailPhotoInteractorInput) {
         self.data = data
@@ -99,7 +96,7 @@ private extension DetailPhotoPresentor {
             case .success(_):
                 self.getAlertSavePhoto()
             case .failure(let error):
-                self.getErrorAlertSavePhoto(message: self.errorHandler.errorMassage(error: error))
+                self.getErrorAlertSavePhoto(message: error.errorMsg)
             }
         }
     }

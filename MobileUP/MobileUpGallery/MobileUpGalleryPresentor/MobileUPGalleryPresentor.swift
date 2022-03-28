@@ -17,6 +17,7 @@ protocol MobileUPGalleryPresentorOutput: AnyObject {
     func getPhotoAlbum() -> Void
     func showDetailPhoto(data: ModelScreenDetailPhoto) -> Void
     var fileManager: HashPhotoService? { get set }
+    func setupController() -> Void
 }
 
 // MARK: - MobileUPGalleryPresentor
@@ -30,9 +31,6 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     
     /// Роутер
     private let router: MobileUpGalleryRouterInput
-    
-    /// Обработчик ошибок
-    private let errorHandler = ErrorHandler()
     
     /// Вью Контроллер
     weak var viewController: (UIViewController & MobileUPGalleryPresentorInput)?
@@ -54,7 +52,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
             case .success(let photos):
                 self.viewController?.photos = self.sortPhoto(by: .r, from: photos)
             case .failure(let error):
-                self.getErrorAlertSavePhoto(message: self.errorHandler.errorMassage(error: error))
+                self.getErrorAlertSavePhoto(message: error.errorMsg)
             }
         }
     }
@@ -62,6 +60,14 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     /// Метод для перехода
     func showDetailPhoto(data: ModelScreenDetailPhoto) -> Void {
         self.showNextController(data: data)
+    }
+    
+    /// Настройка контроллера
+    func setupController() {
+        viewController?.navigationItem.titleView = MobileUPGalleryTitleView()
+        viewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .plain, target: self, action: #selector(logout))
+        viewController?.navigationItem.rightBarButtonItem?.tintColor = .customBlackColor
+        viewController?.navigationItem.hidesBackButton = true
     }
 }
 
@@ -92,5 +98,9 @@ private extension MobileUPGalleryPresentor {
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
         viewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func logout() {
+        router.logaut()
     }
 }
