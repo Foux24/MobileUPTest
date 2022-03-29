@@ -21,10 +21,10 @@ final class DetailPhotoPresentor: DetailPhotoPresentorOutput {
     /// Для кеша изоборажений
     var fileManager: HashPhotoService?
     
-    /// ViewController
+    /// DetailPhotoViewController
     weak var viewController: UIViewController?
     
-    /// Данные фото
+    /// Данные для экрана с фотографией
     var data: ModelScreenDetailPhoto
     
     /// Интерактор

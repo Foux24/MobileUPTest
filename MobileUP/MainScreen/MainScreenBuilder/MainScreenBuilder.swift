@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - MainScreenBuilder
-class MainScreenBuilder {
+final class MainScreenBuilder {
     
     /// Билд контроллера
     static func build() -> UIViewController {
@@ -18,6 +18,7 @@ class MainScreenBuilder {
         let presenter = MainScreenPresentor(interactor: interactor, router: router)
         let viewController = MainScreenViewController(presentor: presenter)
         router.viewController = viewController
+        presenter.viewController = viewController
         return viewController
     }
 }

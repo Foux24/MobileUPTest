@@ -14,7 +14,7 @@ protocol MainScreenRouterInput {
 }
 
 // MARK: - MainScreenRouter
-class MainScreenRouter: MainScreenRouterInput {
+final class MainScreenRouter: MainScreenRouterInput {
     
     /// ссылка на MainScreenViewController
     weak var viewController: UIViewController?

@@ -13,8 +13,8 @@ protocol MobileUpGalleryRouterInput {
     func logaut() -> Void
 }
 
-// MARK: - OAuthVKRouter
-class MobileUpGalleryRouter: MobileUpGalleryRouterInput {
+// MARK: - MobileUpGalleryRouter
+final class MobileUpGalleryRouter: MobileUpGalleryRouterInput {
     
     /// Пропертя с ViewController-ом
     weak var viewController: UIViewController?

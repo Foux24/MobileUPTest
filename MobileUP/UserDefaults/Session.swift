@@ -8,17 +8,20 @@
 import UIKit
 import WebKit
 
-class Session {
+// MARK: - Session
+final class Session {
     
+    /// Singlton для доступа к классу
     static let instance = Session()
     
-    /// Свойство для хранения файла настроек
+    /// Свойство для хранения файла сессии
     private(set) var session: DataSession {
         didSet {
             sessionCaretaker.save(session: session)
         }
     }
 
+    /// Инициализтор
     private init(){
         self.session = self.sessionCaretaker.retrieveSession()
     }

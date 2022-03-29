@@ -13,7 +13,7 @@ protocol OAuthVKRouterInput {
 }
 
 // MARK: - OAuthVKRouter
-class OAuthVKRouter: OAuthVKRouterInput {
+final class OAuthVKRouter: OAuthVKRouterInput {
     
     /// Пропертя с ViewController-ом
     weak var viewController: UIViewController?

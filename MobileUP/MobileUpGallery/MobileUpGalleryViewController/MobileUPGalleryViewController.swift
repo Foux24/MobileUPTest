@@ -43,7 +43,6 @@ final class MobileUPGalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Session.instance.session.token!)
         setupCollection()
         presentor.fileManager = HashPhotoService(container: mobileUpGalleryView.collectionView)
         presentor.getPhotoAlbum()
@@ -51,7 +50,7 @@ final class MobileUPGalleryViewController: UIViewController {
     }
 }
 
-//MARK: - UITableViewDataSource
+//MARK: - UICollectionViewDataSource
 extension MobileUPGalleryViewController: UICollectionViewDataSource {
     
     /// Кол-во итемов в секции коллекции
@@ -68,7 +67,7 @@ extension MobileUPGalleryViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - UITableViewDelegate
+//MARK: - UICollectionViewDelegate
 extension MobileUPGalleryViewController: UICollectionViewDelegate {
     
     /// Действие при выделении итема

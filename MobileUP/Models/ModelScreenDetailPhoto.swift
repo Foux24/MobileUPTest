@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 /// Структура для передачи ее на экран с Деталями фото
 struct ModelScreenDetailPhoto {
     

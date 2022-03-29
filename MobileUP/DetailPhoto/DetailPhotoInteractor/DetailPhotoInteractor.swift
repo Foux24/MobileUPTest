@@ -8,11 +8,11 @@
 import Foundation
 
 /// Проктол взаимодействия с интерактором
-protocol DetailPhotoInteractorInput {
+protocol DetailPhotoInteractorInput: AnyObject {
     func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, ErrorVK>) -> Void)
 }
 
-// MARK: - SearchPhotoInteractor
+// MARK: - DetailPhotoInteractor
 final class DetailPhotoInteractor: DetailPhotoInteractorInput {
 
     /// Сервис по загрузки данных
@@ -23,7 +23,7 @@ final class DetailPhotoInteractor: DetailPhotoInteractorInput {
         self.service = service
     }
     
-    /// Загруза  фото из альбома
+    /// Сохранения фотографии в альбом сохраненные
     func savePhoto(dataPhoto: ModelSortedPhoto, completion: @escaping (Result<JsonModelPhotoCopy, ErrorVK>) -> Void) {
         service.savePhotoPromisURL(ownerID: String(dataPhoto.ownerID), idPhoto: String(dataPhoto.id))
             .then(on: DispatchQueue.global(), service.savePhotoPromisData(_:))

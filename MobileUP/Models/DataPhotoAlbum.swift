@@ -7,10 +7,12 @@
 
 import Foundation
 
-/// структурка для данных альбома
+/// структурка заглушка  для данных альбома
 struct DataPhotoAlbum {
+    
     /// ЙД группы
     let ownerID: String = "-128666765"
+    
     /// ЙД альбома
     let albumID: String = "266276915"
 }

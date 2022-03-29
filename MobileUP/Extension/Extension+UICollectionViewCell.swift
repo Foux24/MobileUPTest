@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Etension для UICollectionViewCell добавления reuseID для регистрации ячейки
 protocol Reusable{}
 
 extension UICollectionViewCell: Reusable {}

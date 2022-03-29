@@ -7,14 +7,11 @@
 
 import UIKit
 
-protocol flagTrueOAuthInput: AnyObject {
-    var flagTrueOAuth: Bool { get set }
-}
-
 /// Протокол для общения презентора с контроллером
 protocol OAuthVKPresentorOutout: AnyObject {
     func loadLoginVK(comlition: @escaping (URLRequest) -> Void)
     func dismissScreen() -> Void
+    func getWarningAuthorisation() -> Void
 }
 
 // MARK: - OAuthVKPresentor
@@ -28,7 +25,10 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
         self.router = router
     }
 
-    /// Метод для перехода
+    /// Ссылка на MainViewController
+    weak var mainViewController: UIViewController?
+    
+    /// Метод для перехода на MobileUPGalleryController
     func dismissScreen() -> Void {
         showDismissScreen()
     }
@@ -49,6 +49,14 @@ final class OAuthVKPresentor: OAuthVKPresentorOutout {
         ]
         let request = URLRequest(url: urlComponents.url!)
         comlition(request)
+    }
+    
+    /// Алерт с предупреждением о закрытии свайпом экрана авторизации
+    func getWarningAuthorisation() -> Void {
+        let alert = UIAlertController(title: "Warning", message: "Вы закрыли окно не авторизовавшись :(\nДля дальнейшей работы с приложением вам необходимо авторизоваться", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        mainViewController?.present(alert, animated: true, completion: nil)
     }
 }
 

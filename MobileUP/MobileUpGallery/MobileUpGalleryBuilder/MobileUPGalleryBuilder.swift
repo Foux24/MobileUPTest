@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - MobileUPGalleryBuilder
-class MobileUPGalleryBuilder {
+final class MobileUPGalleryBuilder {
     
     /// Билд контроллера
     static func build() -> UIViewController {

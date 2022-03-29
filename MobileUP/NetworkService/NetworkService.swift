@@ -8,6 +8,7 @@
 import Foundation
 import PromiseKit
 
+/// Протокол взаимодействия с NetworkService
 protocol NetworkServiceOutput: AnyObject {
     func loadPhotoAlbumPromisURL(ownerID: String, albumID: String) -> Promise<URL>
     func loadPhotoAlbumPromisData(_ url: URL) -> Promise<Data>
@@ -22,7 +23,7 @@ protocol NetworkServiceOutput: AnyObject {
     func validationTokenPromiseParsed(_ data: Data) -> Promise<ValidToken>
 }
 
-// MARK: - Request PhotoAlbum Vk.API
+// MARK: - Request методы к Vk.API
 /// Список методов
 fileprivate enum TypeMethods: String {
     case photosGetAll = "/method/photos.get"
@@ -36,12 +37,11 @@ fileprivate enum TypeRequest: String {
 }
 
 // MARK: - Error
-/// Список  ошибок при запросе
-enum PhotoAlbumError: Error {
+/// Список  ошибок при составлении запросе
+enum ErrorRequest: Error {
     case parseError
     case errorTask
 }
-
 
 // MARK: - NetworkService
 final class NetworkService: NetworkServiceOutput {
@@ -62,8 +62,7 @@ final class NetworkService: NetworkServiceOutput {
     /// Декодер
     private let decoder = JSONDecoder()
     
-    // MARK: - Метод загрузки фото альбома
-    
+    // MARK: - Методы для загрузки фото альбома
     /// Конфигурации УРЛ
     func loadPhotoAlbumPromisURL(ownerID: String, albumID: String) -> Promise<URL> {
         
@@ -76,7 +75,6 @@ final class NetworkService: NetworkServiceOutput {
                                           method: .photosGetAll,
                                           httpMethod: .get,
                                           params: params)
-        print(urlConfig)
         return Promise { resolver in
             let url = urlConfig
             resolver.fulfill(url)
@@ -88,7 +86,7 @@ final class NetworkService: NetworkServiceOutput {
         return Promise { resolver in
             session.dataTask(with: url) { data, response, error in
                 guard let data = data else {
-                    resolver.reject(PhotoAlbumError.errorTask)
+                    resolver.reject(ErrorRequest.errorTask)
                     return
                 }
                 resolver.fulfill(data)
@@ -122,7 +120,6 @@ final class NetworkService: NetworkServiceOutput {
                                           method: .photosCopy,
                                           httpMethod: .get,
                                           params: params)
-        print(urlConfig)
         return Promise { resolver in
             let url = urlConfig
             resolver.fulfill(url)
@@ -134,7 +131,7 @@ final class NetworkService: NetworkServiceOutput {
         return Promise { resolver in
             session.dataTask(with: url) { data, response, error in
                 guard let data = data else {
-                    resolver.reject(PhotoAlbumError.errorTask)
+                    resolver.reject(ErrorRequest.errorTask)
                     return
                 }
                 resolver.fulfill(data)
@@ -163,15 +160,13 @@ final class NetworkService: NetworkServiceOutput {
         
         let token = Session.instance.session.token ?? ""
         
-        let params: [String: String] = ["token" : token,
-                                        "client_secret" : appData.clientSecret
-        ]
+        let params: [String: String] = ["token" : token]
         
         let urlConfig = self.configureUrl(token: appData.serviceToken,
                                           method: .validationToken,
                                           httpMethod: .get,
                                           params: params)
-        print(urlConfig)
+
         return Promise { resolver in
             let url = urlConfig
             resolver.fulfill(url)
@@ -183,7 +178,7 @@ final class NetworkService: NetworkServiceOutput {
         return Promise { resolver in
             session.dataTask(with: url) { data, response, error in
                 guard let data = data else {
-                    resolver.reject(PhotoAlbumError.errorTask)
+                    resolver.reject(ErrorRequest.errorTask)
                     return
                 }
                 resolver.fulfill(data)

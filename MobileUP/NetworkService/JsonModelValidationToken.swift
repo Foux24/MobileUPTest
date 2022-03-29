@@ -14,10 +14,9 @@ struct JsonModelValidationToken: Codable {
 
 // MARK: - Response
 struct ValidToken: Codable {
-    let date, expire, success, userID: Int
+    let success: Int
 
     enum CodingKeys: String, CodingKey {
-        case date, expire, success
-        case userID = "user_id"
+        case success
     }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - Extension UIImageView
 extension UIImageView {
     
     /// Метод загрузки фото в хэш при работе в не таблиц и коллекций

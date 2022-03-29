@@ -27,6 +27,9 @@ final class MainScreenPresentor: MainScreenPresentorOutput {
     /// Роутер
     private let router: MainScreenRouterInput
     
+    /// Cсылка на MainViewController
+    weak var viewController: UIViewController?
+    
     /// Инициализтор
     init(interactor: MainScreenInteractorInput, router: MainScreenRouterInput) {
         self.interactor = interactor
@@ -42,7 +45,8 @@ final class MainScreenPresentor: MainScreenPresentorOutput {
                 self.statusToken = status.success
                 complition()
             case .failure(let error):
-                print(error)
+                Session.instance.cleanSession()
+                self.getErrorAlertSavePhoto(message: error.errorMsg)
             }
         }
     }
@@ -69,5 +73,13 @@ private extension MainScreenPresentor {
     /// Переход на экран с галлереей фотографий
     func transitionToNextScreenMobileUPGallery() {
         self.router.showScreenMobileUPGallery()
+    }
+    
+    /// Алерт с ошибкой при проверки валидности токена
+    func getErrorAlertSavePhoto(message: String) -> Void {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }

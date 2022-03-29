@@ -6,8 +6,12 @@
 //
 
 import Foundation
-/// Для сортировки
+/// Модель Сортированных фото
 struct ModelSortedPhoto {
+    
+    /// УРЛ
     var url: String
+    
+    /// Дата создания, ЙД, ЙД Создателя
     var dateCreate, id, ownerID: Int
 }

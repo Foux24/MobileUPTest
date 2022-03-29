@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Records Save
+// MARK: - Session Save
 final class SessionCaretaker {
     
     /// Определим свойства кодера и декодера

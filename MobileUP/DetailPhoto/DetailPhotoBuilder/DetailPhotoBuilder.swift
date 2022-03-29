@@ -7,8 +7,8 @@
 
 import UIKit
 
-// MARK: - MobileUPGalleryBuilder
-class DetailPhotoBuilder {
+// MARK: - DetailPhotoBuilder
+final class DetailPhotoBuilder {
     
     /// Билд контроллера
     static func build(data: ModelScreenDetailPhoto) -> UIViewController {

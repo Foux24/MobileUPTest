@@ -8,7 +8,6 @@
 import UIKit
 
 // MARK: - MobileUPGalleryTitleView
-
 final class MobileUPGalleryTitleView: UIView {
    
     /// Title

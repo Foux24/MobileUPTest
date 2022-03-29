@@ -12,7 +12,7 @@ protocol MobileUPGalleryIntercatorInput {
     func loadRendomPhoto(dataAlbum: DataPhotoAlbum, completion: @escaping (Result<[Photo], ErrorVK>) -> Void)
 }
 
-// MARK: - SearchPhotoInteractor
+// MARK: - MobileUPGalleryIntercator
 final class MobileUPGalleryIntercator: MobileUPGalleryIntercatorInput {
 
     /// Сервис по загрузки данных

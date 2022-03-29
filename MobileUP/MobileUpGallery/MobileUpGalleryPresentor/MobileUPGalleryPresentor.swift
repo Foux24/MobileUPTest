@@ -57,7 +57,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
         }
     }
     
-    /// Метод для перехода
+    /// Метод для перехода к выбранной фотографии
     func showDetailPhoto(data: ModelScreenDetailPhoto) -> Void {
         self.showNextController(data: data)
     }
@@ -71,6 +71,7 @@ final class MobileUPGalleryPresentor: MobileUPGalleryPresentorOutput {
     }
 }
 
+// MARK: - Private
 private extension MobileUPGalleryPresentor {
     
     /// Метод сортировки фото по передаваемому типу
@@ -79,7 +80,10 @@ private extension MobileUPGalleryPresentor {
         for model in array {
             for size in model.sizes {
                 if size.type == sizeType {
-                    let modelPhoto = ModelSortedPhoto(url: size.url, dateCreate: model.date, id: model.id, ownerID: model.ownerID)
+                    let modelPhoto = ModelSortedPhoto(url: size.url,
+                                                      dateCreate: model.date,
+                                                      id: model.id,
+                                                      ownerID: model.ownerID)
                     objectLinks.append(modelPhoto)
                 }
             }
@@ -100,6 +104,7 @@ private extension MobileUPGalleryPresentor {
         viewController?.present(alert, animated: true, completion: nil)
     }
     
+    /// для кнопки Выход
     @objc func logout() {
         router.logaut()
     }

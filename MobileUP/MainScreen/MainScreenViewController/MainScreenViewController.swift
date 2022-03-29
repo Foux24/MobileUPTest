@@ -43,7 +43,7 @@ final class MainScreenViewController: UIViewController {
 
 // MARK: - Private
 private extension MainScreenViewController {
-    
+
     /// Метод добавления таргета кнопке
     func setupTargetBuuton() {
         self.mainScreenView.authorisationVKButton.addTarget(self, action: #selector(showScreenOAuth), for: .touchUpInside)
@@ -68,3 +68,5 @@ private extension MainScreenViewController {
         }
     }
 }
+
+

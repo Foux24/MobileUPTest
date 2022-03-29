@@ -9,10 +9,10 @@ import UIKit
 
 /// Проктол взаимодействия с интерактором
 protocol MainScreenInteractorInput {
-    func validationToken(completion: @escaping (Result<ValidToken, Error>) -> Void)
+    func validationToken(completion: @escaping (Result<ValidToken, ErrorVK>) -> Void)
 }
 
-// MARK: - SearchPhotoInteractor
+// MARK: - MainScreenInteractor
 final class MainScreenInteractor: MainScreenInteractorInput {
 
     /// Сервис по загрузки данных
@@ -24,14 +24,16 @@ final class MainScreenInteractor: MainScreenInteractorInput {
     }
     
     /// Проверка валдиности тококена
-    func validationToken(completion: @escaping (Result<ValidToken, Error>) -> Void) {
-        service.validationTokenPromisURL()
-            .then(on: DispatchQueue.global(), service.validationTokenPromisData(_:))
-            .then(service.validationTokenPromiseParsed(_:))
-            .done(on: DispatchQueue.main) { response in
-                completion(.success(response))
-            }.catch { error in
-                completion(.failure(error))
-            }
+    func validationToken(completion: @escaping (Result<ValidToken, ErrorVK>) -> Void) {
+        if Session.instance.session.token != nil {
+            service.validationTokenPromisURL()
+                .then(on: DispatchQueue.global(), service.validationTokenPromisData(_:))
+                .then(service.validationTokenPromiseParsed(_:))
+                .done(on: DispatchQueue.main) { response in
+                    completion(.success(response))
+                }.catch { error in
+                    completion(.failure(error as! ErrorVK))
+                }
+        }
     }
 }

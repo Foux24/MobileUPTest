@@ -43,7 +43,7 @@ final class DetailPhotoViewController: UIViewController {
     }
 }
 
-//MARK: - UITableViewDataSource
+//MARK: - UICollectionViewDataSource
 extension DetailPhotoViewController: UICollectionViewDataSource {
     
     /// Кол-во итемов в секции коллекции
@@ -60,7 +60,7 @@ extension DetailPhotoViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - UITableViewDelegate
+//MARK: - UIUICollectionViewDelegate
 extension DetailPhotoViewController: UICollectionViewDelegate {
     
     /// Действие при выделении итема

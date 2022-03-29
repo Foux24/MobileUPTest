@@ -38,11 +38,7 @@ final class OAuthVKViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
-        self.presentor.loadLoginVK { [weak self] request in
-            guard let self = self else { return }
-            self.oAuthView.webView.load(request)
-        }
+        self.setupController()
         self.setupWebView()
     }
 }
@@ -69,12 +65,11 @@ extension OAuthVKViewController: WKNavigationDelegate {
             }
         
         if let token = params["access_token"], let userId = params["user_id"] {
-            
             let session = DataSession(token: token, userId: Int(userId) ?? 0)
             Session.instance.addSession(session)
-            decisionHandler(.cancel)
             presentor.dismissScreen()
         }
+        decisionHandler(.cancel)
     }
 }
 
@@ -84,5 +79,23 @@ private extension OAuthVKViewController {
     /// Настроим WebView
     func setupWebView() {
         self.oAuthView.webView.navigationDelegate = self
+        
+    }
+    
+    /// Настроим контроллер
+    func setupController() {
+        self.navigationController?.isNavigationBarHidden = true
+        self.presentor.loadLoginVK { [weak self] request in
+            guard let self = self else { return }
+            self.oAuthView.webView.load(request)
+        }
+        self.presentationController?.delegate = self
+    }
+}
+
+extension OAuthVKViewController: UIAdaptivePresentationControllerDelegate {
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        presentor.getWarningAuthorisation()
     }
 }
