@@ -36,7 +36,7 @@ final class MainScreenPresentor: MainScreenPresentorOutput {
         self.router = router
     }
     
-    /// Метод загрузки сервисного токена
+    /// Метод проверки валидности токена
     func getStatusToken(complition: @escaping () -> Void) {
         interactor.validationToken() { [weak self] result in
             guard let self = self else { return }
