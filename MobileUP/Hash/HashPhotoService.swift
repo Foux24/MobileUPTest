@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 /// Протокол для ребута коллекции или таблицы по индекспасу
 fileprivate protocol DataReloadable {

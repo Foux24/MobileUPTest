@@ -60,7 +60,7 @@ private extension DetailPhotoView {
             photoView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -34),
-            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -40),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.heightAnchor.constraint(equalToConstant: 80)
         ])
@@ -71,12 +71,12 @@ private extension DetailPhotoView {
         let spacing: CGFloat = 2
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.2),
-            heightDimension: .fractionalHeight(1.0))
+            heightDimension: .fractionalHeight(0.8))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: spacing, leading: spacing, bottom: spacing, trailing: spacing)
 
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
+            widthDimension: .fractionalWidth(0.8),
             heightDimension: .fractionalWidth(0.2))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 

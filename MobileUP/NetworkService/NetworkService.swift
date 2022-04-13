@@ -166,7 +166,7 @@ final class NetworkService: NetworkServiceOutput {
                                           method: .validationToken,
                                           httpMethod: .get,
                                           params: params)
-
+        print(urlConfig)
         return Promise { resolver in
             let url = urlConfig
             resolver.fulfill(url)
